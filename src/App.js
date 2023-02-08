@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Router, Link } from "wouter";
 import PageRouter from "./components/Router"
 
+import "./styles/styles.css"
 
 function App() {
     return (

@@ -2,6 +2,7 @@ import * as React from "react";
 import { animated } from "react-spring";
 import { useWiggle } from "../hooks/wiggle";
 import PokemonImage from "../components/PokemonImage";
+import Pokedex from "../components/Pokedex";
 import { Link } from "wouter";
 import axios from 'axios'
 
@@ -67,27 +68,31 @@ export default function Home() {
 
   return (
     <>
-      <h1 className="title">You've been attacked by {pokemonName}!</h1>
+      <Pokedex
+        pokemonName={pokemonName}
+        pokemonImageUrl={pokemonImageUrl}
+        loading={loading}
+      />
+      <h1 className="">You've been attacked by {pokemonName}!</h1>
       {/* When the user hovers over the image we apply the wiggle style to it */}
-      <animated.div onMouseEnter={trigger} style={style}>
+      {/* <animated.div onMouseEnter={trigger} style={style}>
         <PokemonImage
             pokemonImageUrl={pokemonImageUrl}
-            pokemonName={pokemonName}
             loading={loading}
         />
-      </animated.div>
-      <div className="navigation">
+      </animated.div> */}
+      <div className="">
         {pokemonID > 1 &&
-            <button className="btn--click-me" onClick={handlePrevPokemon}>
+            <button className="" onClick={handlePrevPokemon}>
                 Previous Pokemon
             </button>
         }
         {pokemonID < noMaxPokemon &&
-            <button className="btn--click-me" onClick={handleNextPokemon}>
+            <button className="" onClick={handleNextPokemon}>
                 Next Pokemon
             </button>
         }
-        <button className="btn--click-me" onClick={handleRandomPokemon}>
+        <button className="" onClick={handleRandomPokemon}>
                 Random Pokemon
         </button>
       </div>
