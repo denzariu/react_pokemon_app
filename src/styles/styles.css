@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "FontDraxel";
+    src: url("/public/Draxel.ttf") format("truetype");
+}
+
 :root {
     --main-bg-color: #fe0065;
     --secondary-bg-color: #f2f2f2;
@@ -54,6 +59,17 @@
     background-color: var(--secondary-bg-color);
   }
   
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text-ui {
+    margin: 16px 0px;
+  }
+
   .logo {
     justify-self: start;
     width: 100%;
@@ -184,6 +200,11 @@
       width: 90%;
       transform: scale(0.5);
     }
+    .blue-squares-container-ui {
+      width: 70vw;
+      transform: scale(0.5);
+      flex-wrap: wrap;
+    }
   }
   
   @media only screen and (max-width: 1200px) {
@@ -194,6 +215,11 @@
     #pokedex {
       transform: scale(1);
     }
+    .blue-squares-container-ui {
+        width: 70vw;
+        transform: scale(0.8);
+        flex-wrap: wrap;
+      }
   }
 
   /* LEFT PANEL */
@@ -384,9 +410,9 @@
   .green-screen {
     width: 80px;
     height: 36px;
-    border-radius: 5px;
-    border: solid black 2px;
-    background-color: #3ab47d;
+    border-radius: 3px;
+    border: solid black 3px;
+    background-color: var(--main-screen-bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -394,9 +420,11 @@
   
   #name-screen {
     width: 100%;
-    font-family: 'Press Start 2P', cursive;
+    font-family: fontDraxel;
+    color: black;
+    font-weight: 300;
     text-align: center;
-    font-size: 13px;
+    font-size: 16px;
     overflow-wrap: break-word;
   }
   
@@ -550,13 +578,16 @@
     align-items: center;
   }
   .right-panel-screen {
-    font-family: 'Press Start 2P', cursive;
+    
+    font-family: fontDraxel;
+    ffont-family: 'Press Start 2P', cursive;
     width: 146px;
     height: 64px;
     background-color: var(--secondary-screen-bg-color);
     border: solid black 2px;
     border-radius: 4px;
-    font-size: xx-small;
+    font-size: 13px;
+    font-weight: 500;
     padding-left: 2px;
     padding-right: 2px;
     display: flex;
@@ -564,7 +595,7 @@
     justify-content: center;
     text-align: left;
     padding-left: 8px;
-    line-height: 2;
+    line-height: 1.5;
   }
   
   /* square buttons grid */
@@ -586,6 +617,26 @@
     border: black 1.5px solid;
     background-color: var(--square-buttons-color);
     box-shadow: inset -2px -2px #3298cb;
+  }
+
+  .blue-squares-container-ui {
+    width: auto;
+    height: auto;
+    display: flex;
+    gap: 50px;
+  }
+
+  .blue-square-ui {
+    flex: 1;
+    padding: 24px 8px;
+    border-radius: 12px;
+    border: black 3px solid;
+    background-color: var(--main-bg-color);
+    box-shadow: inset -3px -5px rgb(153, 22, 22);
+    font-weight: 500;
+    font-family: FontDraxel;
+    color: #20020e;
+    font-size: 32px;
   }
   
   /* center buttons */
@@ -677,6 +728,8 @@
   .bottom-screens-container .right-panel-screen {
     width: 64px;
     height: 25px;
+    font-weight: 500;
+    padding: 0;
   }
   
   .mention {

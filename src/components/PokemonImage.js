@@ -5,7 +5,7 @@ import React from 'react'
 
 
 
-export default function PokemonImage({ pokemonImageUrl, loading }) {
+export default function PokemonImage({ pokemonImageUrl, pokemonName, loading }) {
 
   const [loadedImage, setLoadImage] = React.useState(false)
 
@@ -20,7 +20,7 @@ export default function PokemonImage({ pokemonImageUrl, loading }) {
   
 
   const image = <img src={pokemonImageUrl} className="illustration"
-                    alt="Illustration click to change Pokemon" 
+                    alt={"Illustration of " + pokemonName} 
                     onLoad={handleLoadedImage} />
 
   const placeholder = <img src="/logo512.png" className="illustration"

@@ -17,13 +17,13 @@ export default function Home() {
   const [style, trigger] = useWiggle({ x: 5, y: 5, scale: 1 });
 
   
+  const [artwork, setArtwork] = React.useState(false)
   const [loading, setLoading] = React.useState(true)
-  const [pokemonName, setPokemonName] = React.useState("Bulbasaur")
-  const [pokemonImageUrl, setPokemonImageUrl] = React.useState([])
+  const [pokemonDetails, setPokemonDetails] = React.useState([ ])
 
   React.useEffect(() => {
-    setPokemonImageUrl("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemonID + fileExtension)
-  }, [])
+
+}, [])
    
   React.useEffect(() => {
     setLoading(true)
@@ -33,27 +33,38 @@ export default function Home() {
     axios.get(newPokemon, {
         cancelToken: new axios.CancelToken(c => cancel = c)
     }).then(res => {
-        setPokemonName(res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1).toLowerCase())
-        setPokemonImageUrl("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemonID + fileExtension)
+        
+        var obj = {name: res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1).toLowerCase(),
+                    height: res.data.height,
+                    weight: res.data.weight,
+                    types: [res.data.types]}
+        
+        artwork?
+            obj = {...obj, url:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemonID + fileExtension}
+        :
+            obj = {...obj, url:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + pokemonID + fileExtension}
+        
+        setPokemonDetails(obj)
         setLoading(false)
     })
 
       return () => cancel()
-}, [pokemonID])
+}, [pokemonID, artwork])
+
+  const handleArtwork = () => {
+    const newArtwork = !artwork
+    setArtwork(newArtwork)
+  }
 
   const handlePrevPokemon = () => {
     console.log(pokemonID)
     const newPokemonID = (Number(pokemonID) - 1).toString()
-
-    // Call the function to set the state string in our component
     setPokemonID(newPokemonID)
   };
 
   const handleNextPokemon = () => {
     console.log(pokemonID)
     const newPokemonID = (Number(pokemonID) + 1).toString()
-
-    // Call the function to set the state string in our component
     setPokemonID(newPokemonID)
   };
 
@@ -61,42 +72,37 @@ export default function Home() {
     console.log(pokemonID)
     // Get a random Pokemon in range [1, noMaxPokemon]
     const newPokemonID = ( Math.floor((Math.random() * (noMaxPokemon - 1))) + 1).toString()
-
-    // Call the function to set the state string in our component
     setPokemonID(newPokemonID)
   };
 
   return (
     <>
-      <Pokedex
-        pokemonName={pokemonName}
-        pokemonImageUrl={pokemonImageUrl}
-        loading={loading}
-      />
-      <h1 className="">You've been attacked by {pokemonName}!</h1>
-      {/* When the user hovers over the image we apply the wiggle style to it */}
-      {/* <animated.div onMouseEnter={trigger} style={style}>
-        <PokemonImage
-            pokemonImageUrl={pokemonImageUrl}
+      <div className="home-container">
+        <Pokedex 
+            pokemonDetails={pokemonDetails}
             loading={loading}
         />
-      </animated.div> */}
-      <div className="">
-        {pokemonID > 1 &&
-            <button className="" onClick={handlePrevPokemon}>
-                Previous Pokemon
-            </button>
-        }
-        {pokemonID < noMaxPokemon &&
-            <button className="" onClick={handleNextPokemon}>
-                Next Pokemon
-            </button>
-        }
-        <button className="" onClick={handleRandomPokemon}>
-                Random Pokemon
-        </button>
+        <h1 className="text-ui"> </h1>
+        <div className="blue-squares-container-ui">
+                {pokemonID > 1 &&
+                    <button className="blue-square-ui" onClick={handlePrevPokemon}>
+                        Previous Pokemon
+                    </button>
+                }
+                {pokemonID < noMaxPokemon &&
+                    <button className="blue-square-ui" onClick={handleNextPokemon}>
+                        Next Pokemon
+                    </button>
+                }
+                <button className="blue-square-ui" onClick={handleRandomPokemon}>
+                        Random Pokemon
+                </button>
+
+                <button className="blue-square-ui" onClick={handleArtwork}>
+                        Artwork change
+                </button> 
+        </div>
       </div>
-      
     </>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import PokemonImage from './PokemonImage'
 
-export default function Pokedex({ pokemonName, pokemonImageUrl, loading }) {
+export default function Pokedex({ pokemonDetails, loading }) {
   return (
     <div id="pokedex-container">
     <div id="pokedex">
@@ -40,8 +40,8 @@ export default function Pokedex({ pokemonName, pokemonImageUrl, loading }) {
             </div>
             <div id="main-screen">
             <PokemonImage
-                pokemonImageUrl={pokemonImageUrl}
-                pokemonName={pokemonName}
+                pokemonImageUrl={pokemonDetails.url}
+                pokemonName={pokemonDetails.name}
                 loading={loading}
             />
             </div>
@@ -73,7 +73,7 @@ export default function Pokedex({ pokemonName, pokemonImageUrl, loading }) {
               <div>.</div>
             </div>
             <div className="green-screen">
-              <span id="name-screen">{pokemonName}</span>
+              <span id="name-screen">{pokemonDetails.name}</span>
             </div>
             <div className="right-nav-container">
               <div className="nav-button">
@@ -114,7 +114,7 @@ export default function Pokedex({ pokemonName, pokemonImageUrl, loading }) {
         </div>
         <div className="top-screen-container">
           <div id="about-screen" className="right-panel-screen">
-            Height: 70cm Weight: 6.9kg
+            Height: {pokemonDetails.height * 10}cm <br></br>Weight: {pokemonDetails.weight / 10}kg
           </div>
         </div>
         <div className="square-buttons-container">
@@ -157,8 +157,10 @@ export default function Pokedex({ pokemonName, pokemonImageUrl, loading }) {
           </div>
         </div>
         <div className="bottom-screens-container">
-          <div id="type-screen" className="right-panel-screen">grass</div>
-          <div id="id-screen" className="right-panel-screen">#1</div>
+          {
+            pokemonDetails.types && (pokemonDetails.types[0]).map(type => { return <div id="type-screen" className="right-panel-screen" key={type.slot}>{type.type.name.toUpperCase()}</div> })
+            //<div id="id-screen" className="right-panel-screen">#1</div>
+          }
         </div>
       </div>
     </div>
