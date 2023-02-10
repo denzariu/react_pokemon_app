@@ -340,7 +340,7 @@
   .illustration {
     justify-content: center;
     justify-self: center;
-    width: 96px;
+    width: 97px;
     height: 100px;
     flex: 1;
   }
@@ -349,10 +349,11 @@
     height: 100%;
     width: 80%;
     justify-self: center;
+    justify-items: center;
     background-color: var(--main-screen-bg-color);
     border: solid black 2px;
     border-radius: 5%;
-    display: flex;
+    display: grid;
   }
   
   .bottom-screen-lights {
@@ -558,7 +559,7 @@
     width: 50%;
     display: grid;
     grid-template-rows: 24% repeat(4, 19%);
-    border-bottom: solid black 3px;
+    border-bottom: solid black 4px;
     border-bottom-right-radius: 10px;
   }
   #right-panel::before {
@@ -568,7 +569,7 @@
     bottom: 0;
     width: 100%;
     height: 265px;
-    border-right: solid black 3px;
+    border-right: solid black 4px;
     border-bottom-right-radius: 7px;
   }
   /* top screen */
@@ -580,7 +581,6 @@
   .right-panel-screen {
     
     font-family: fontDraxel;
-    ffont-family: 'Press Start 2P', cursive;
     width: 146px;
     height: 64px;
     background-color: var(--secondary-screen-bg-color);

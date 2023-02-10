@@ -11,8 +11,8 @@ export function useWiggle({
   scale = 1,
   timing = 150,
   springConfig = {
-    tension: 300,
-    friction: 8
+    tension: 400,
+    friction: 3
   }
 }) {
   // Accessibility setting from the user system indicating that they prefer to minimize motion
@@ -26,7 +26,13 @@ export function useWiggle({
     transform: isActive
       ? `translate(${x}px, ${y}px) rotate(${rotation}deg) scale(${scale})`
       : `translate(0px, 0px) rotate(0deg) scale(1)`,
-    config: springConfig
+
+    
+    justifySelf: "center",
+    justifyItems: "center",  
+    alignItems: "center",
+    display: "flex",
+    config: springConfig,
   });
 
   // Timing parameter determines how long the wiggle lasts using browser setTimeout function

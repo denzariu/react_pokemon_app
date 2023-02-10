@@ -1,9 +1,6 @@
 import * as React from "react";
-import { animated } from "react-spring";
 import { useWiggle } from "../hooks/wiggle";
-import PokemonImage from "../components/PokemonImage";
 import Pokedex from "../components/Pokedex";
-import { Link } from "wouter";
 import axios from 'axios'
 
 
@@ -78,6 +75,8 @@ export default function Home() {
   return (
     <>
       <div className="home-container">
+        
+      <h1 className="text-ui"> </h1>
         <Pokedex 
             pokemonDetails={pokemonDetails}
             loading={loading}

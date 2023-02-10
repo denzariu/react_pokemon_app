@@ -1,13 +1,13 @@
 import React from 'react'
-//import logo from '../../public/logo192.png'
-
-
+import { animated } from 'react-spring'
+import { useWiggle } from "../hooks/wiggle";
 
 
 
 export default function PokemonImage({ pokemonImageUrl, pokemonName, loading }) {
 
   const [loadedImage, setLoadImage] = React.useState(false)
+  const [style, trigger] = useWiggle({ x: 2, y: -2, scale: 0.9 });
 
   React.useEffect(() => {
     setLoadImage(false)
@@ -19,9 +19,11 @@ export default function PokemonImage({ pokemonImageUrl, pokemonName, loading }) 
 
   
 
-  const image = <img src={pokemonImageUrl} className="illustration"
+  const image = <animated.div onMouseEnter={trigger} style={style}>
+                 <img src={pokemonImageUrl} className="illustration"
                     alt={"Illustration of " + pokemonName} 
                     onLoad={handleLoadedImage} />
+                </animated.div>
 
   const placeholder = <img src="/logo512.png" className="illustration"
     alt="Illustration click to change Pokemon" 
@@ -35,7 +37,6 @@ export default function PokemonImage({ pokemonImageUrl, pokemonName, loading }) 
         {!loading &&
             image
         }
-        
     </>
   )
 }
