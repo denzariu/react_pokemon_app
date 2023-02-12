@@ -12,7 +12,7 @@ export function useWiggle({
   timing = 150,
   springConfig = {
     tension: 400,
-    friction: 3
+    friction: 8
   }
 }) {
   // Accessibility setting from the user system indicating that they prefer to minimize motion

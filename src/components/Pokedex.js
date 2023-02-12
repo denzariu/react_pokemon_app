@@ -2,7 +2,16 @@ import React from 'react'
 import PokemonImage from './PokemonImage'
 import PokemonType from './PokemonType'
 
-export default function Pokedex({ pokemonDetails, loading }) {
+
+
+export default function Pokedex({ pokemonDetails, loading, artwork }) {
+
+    const [shiny, setShiny] = React.useState(false)
+    
+    const handleShinyChange = () => {
+        const newShiny = !shiny
+        setShiny(newShiny)
+    }
   return (
     <div id="pokedex-container">
     <div id="pokedex">
@@ -40,17 +49,18 @@ export default function Pokedex({ pokemonDetails, loading }) {
               <div className="mini-light red"></div>
               <div className="mini-light red"></div>
             </div>
-            <div id="main-screen">
+            <div id="main-screen" className={ pokemonDetails.types?.[0]?.[0].type.name + "-type-screen"}>
+            
             <PokemonImage
-                pokemonImageUrl={pokemonDetails.url}
+                pokemonImageUrl={shiny ? pokemonDetails.url_shiny : artwork ? pokemonDetails.url_artwork : pokemonDetails.url}
                 pokemonName={pokemonDetails.name}
                 loading={loading}
             />
             </div>
             {/* <div id="main-screen"></div> */}
             <div className="bottom-screen-lights">
-              <div className="small-light red">
-                <div className="dot light-red"></div>
+              <div className={"small-light red " + (shiny ? "shiny" : "")} onClick={handleShinyChange}>
+                {!shiny && <div className="dot light-red"></div>}
               </div>
               
           <div id="id-screen">{pokemonDetails.id}</div>
@@ -75,8 +85,9 @@ export default function Pokedex({ pokemonDetails, loading }) {
             <div className="dots-container">
               <div>.</div>
               <div>.</div>
+              <div>.</div>
             </div>
-            <div className="green-screen">
+            <div className="">
               <span id="name-screen">{pokemonDetails.name}</span>
             </div>
             <div className="right-nav-container">
@@ -118,7 +129,11 @@ export default function Pokedex({ pokemonDetails, loading }) {
         </div>
         <div className="top-screen-container">
           <div id="about-screen" className="right-panel-screen">
-            Height: {pokemonDetails.height * 10}cm <br></br>Weight: {pokemonDetails.weight / 10}kg
+            {pokemonDetails.stats && (pokemonDetails.stats.map(stat =>  
+                <>
+                    <div>{stat.stat.name.toUpperCase() + " " + "-".repeat(19 - stat.stat.name.length - stat.base_stat/99) + " " + stat.base_stat}</div>
+                </>
+            ))}
           </div>
         </div>
         <div className="square-buttons-container">

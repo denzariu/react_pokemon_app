@@ -11,7 +11,6 @@ const fileExtension = ".png"
 export default function Home() {
   
   const [pokemonID, setPokemonID] = React.useState("1");
-  const [style, trigger] = useWiggle({ x: 5, y: 5, scale: 1 });
 
   
   const [artwork, setArtwork] = React.useState(false)
@@ -34,18 +33,22 @@ export default function Home() {
         var obj = {
                     id: res.data.id,
                     name: res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1).toLowerCase(),
+                    //name: res.data.name.toUpperCase(),
                     height: res.data.height,
                     weight: res.data.weight,
-                    types: [res.data.types]}
+                    types: [res.data.types],
+                    stats: res.data.stats,
+                }
         
-        artwork?
-            obj = {...obj, url:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemonID + fileExtension}
-        :
-            obj = {...obj, url:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + pokemonID + fileExtension}
+        obj = {...obj, url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemonID + fileExtension,
+                       url_shiny: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" + pokemonID + fileExtension,
+                       url_artwork:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + pokemonID + fileExtension
+        }
         
         setPokemonDetails(obj)
         setLoading(false)
         console.log(obj)
+        console.log(obj.types[0][0].type.name)
     })
 
       return () => cancel()
@@ -83,6 +86,7 @@ export default function Home() {
         <Pokedex 
             pokemonDetails={pokemonDetails}
             loading={loading}
+            artwork={artwork}
         />
         <h1 className="text-ui"> </h1>
         <div className="blue-squares-container-ui">
@@ -101,7 +105,7 @@ export default function Home() {
                 </button>
 
                 <button className="blue-square-ui" onClick={handleArtwork}>
-                        Artwork change
+                        Artwork Change
                 </button> 
         </div>
       </div>

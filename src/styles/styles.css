@@ -3,6 +3,11 @@
     src: url("/public/Draxel.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "FontF25";
+    src: url("/public/F25_Bank_Printer.ttf") format("truetype");
+}
+
 :root {
     --main-bg-color: #fe0065;
     --secondary-bg-color: #f2f2f2;
@@ -46,78 +51,152 @@
   
 
   /* Pokemon types and colors */
-  #grass-type {
+  .grass-type {
     background-color: #7AC74C;
   }
 
-  #poison-type {
+  .poison-type {
     background-color: #A33EA1; 
   }
 
-  #normal-type {
+  .normal-type {
     background-color: #A8A77A;
   }
 
-  #fire-type {
+  .fire-type {
     background-color: #EE8130;
   }
 
-  #flying-type {
+  .flying-type {
     background-color: #A98FF3;
   }
 
-  #fighting-type {
+  .fighting-type {
     background-color: #C22E28;
   }
 
-  #fairy-type {
+  .fairy-type {
     background-color: #D685AD;
   }
 
-  #water-type {
+  .water-type {
     background-color: #6390F0;
   }
 
-  #dragon-type {
+  .dragon-type {
     background-color: #6F35FC;
   }
 
-  #dark-type {
+  .dark-type {
     background-color: #705746;
   }
 
-  #bug-type {
+  .bug-type {
     background-color: #A6B91A;
   }
 
-  #electric-type {
+  .electric-type {
     background-color: #F7D02C;
   }
 
-  #steel-type {
+  .steel-type {
     background-color: #B7B7CE;
   }
 
-  #ground-type {
+  .ground-type {
     background-color: #E2BF65;
   }
 
-  #psychic-type {
+  .psychic-type {
     background-color: #F95587;
   }
 
-  #ice-type {
+  .ice-type {
     background-color: #96D9D6;
   }
 
-  #rock-type {
+  .rock-type {
     background-color: #B6A136;
   }
 
-  #ghost-type {
+  .ghost-type {
     background-color: #735797;
   }
 
+
+  /* Hover */
+  .grass-type-screen:hover {
+    background-color: #7AC74C!important;
+  }
+
+  .poison-type-screen:hover {
+    background-color: #A33EA1!important; 
+  }
+
+  .normal-type-screen:hover {
+    background-color: #A8A77A!important;
+  }
+
+  .fire-type-screen:hover {
+    background-color: #EE8130!important;
+  }
+
+  .flying-type-screen:hover {
+    background-color: #A98FF3!important;
+  }
+
+  .fighting-type-screen:hover {
+    background-color: #C22E28!important;
+  }
+
+  .fairy-type-screen:hover {
+    background-color: #D685AD!important;
+  }
+
+  .water-type-screen:hover {
+    background-color: #6390F0!important;
+  }
+
+  .dragon-type-screen:hover {
+    background-color: #6F35FC!important;
+  }
+
+  .dark-type-screen:hover {
+    background-color: #705746!important;
+  }
+
+  .bug-type-screen:hover {
+    background-color: #A6B91A!important;
+  }
+
+  .electric-type-screen:hover {
+    background-color: #F7D02C!important;
+  }
+
+  .steel-type-screen:hover {
+    background-color: #B7B7CE!important;
+  }
+
+  .ground-type-screen:hover {
+    background-color: #E2BF65!important;
+  }
+
+  .psychic-type-screen:hover {
+    background-color: #F95587!important;
+  }
+
+  .ice-type-screen:hover {
+    background-color: #96D9D6!important;
+  }
+
+  .rock-type-screen:hover {
+    background-color: #B6A136!important;
+  }
+
+  .ghost-type-screen:hover {
+    background-color: #735797!important;
+  }
+  
   * {
     margin: 0;
     padding: 0;
@@ -274,11 +353,13 @@
       width: 90%;
       transform: scale(0.5);
     }
+    /*
     .blue-squares-container-ui {
       width: 70vw;
       transform: scale(0.5);
       flex-wrap: wrap;
     }
+    */
   }
   
   @media only screen and (max-width: 1200px) {
@@ -289,11 +370,13 @@
     #pokedex {
       transform: scale(1);
     }
+    /*
     .blue-squares-container-ui {
         width: 70vw;
         transform: scale(0.8);
         flex-wrap: wrap;
       }
+      */
   }
 
   /* LEFT PANEL */
@@ -367,6 +450,14 @@
     height: 16px;
     border-radius: 50%;
   }
+
+  .shiny {
+    background-color: #fdd81d!important;
+  }
+  .shiny:hover {
+    background-color: #ffe770!important;
+  }
+
   .dot {
     height: 5px;
     width: 5px;
@@ -374,6 +465,10 @@
     top: 3px;
     left: 3px;
     border-radius: 50%;
+  }
+
+  .small-light:hover {
+    background-color: rgb(218, 1, 1);
   }
 
   #id-screen {
@@ -497,25 +592,24 @@
     border: 2px solid black;
   }
   
-  .green-screen {
-    width: 80px;
-    height: 36px;
-    border-radius: 3px;
-    border: solid black 3px;
-    background-color: var(--main-screen-bg-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
   #name-screen {
     width: 100%;
+    padding-top: 3px; /* The font isn't centered :( */
     font-family: fontDraxel;
     color: black;
     font-weight: 300;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     overflow-wrap: break-word;
+    
+    width: 80px;
+    height: 36px;
+    border-radius: 9px;
+    border: solid black 2px;
+    background-color: rgb(245, 245, 235);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .circle {
@@ -654,12 +748,13 @@
   #right-panel::before {
     content: '';
     position: absolute;
-    left: -3px;
+    left: 204px;
     bottom: 0;
-    width: 100%;
+    width: 10%;
     height: 265px;
     border-right: solid black 4px;
-    border-bottom-right-radius: 7px;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 4px;
   }
   /* top screen */
   .top-screen-container {
@@ -669,20 +764,22 @@
   }
   .right-panel-screen {
     
-    font-family: fontDraxel;
+    font-family: FontF25;
     width: 146px;
     height: 64px;
-    background-color: var(--secondary-screen-bg-color);
+    color: black;
+    background-color: rgb(245, 245, 235);
     border: solid black 2px;
     border-radius: 8px;
-    font-size: 13px;
+    font-size: 9px;
     font-weight: 500;
-    padding: 0 12px;
+    padding: 0px 12px 0px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: left;
-    line-height: 1.25;
+    text-align: justify;
+    line-height: 1;
   }
   
   /* square buttons grid */
@@ -705,23 +802,28 @@
     background-color: var(--square-buttons-color);
     box-shadow: inset -2px -2px #3298cb;
   }
+  .blue-square:hover {
+    background-color: #3298cb!important;
+  }
 
   .blue-squares-container-ui {
     width: auto;
     height: auto;
     display: flex;
-    gap: 50px;
+    gap: 40px;
   }
 
   .blue-square-ui {
     flex: 1;
-    padding: 24px 8px;
+    width: 175px;
+    padding: 18px 8px;
     border-radius: 12px;
     border: black 3px solid;
-    background-color: var(--main-bg-color);
-    box-shadow: inset -3px -5px rgb(153, 22, 22);
+    background-color: rgb(245, 245, 235);
+    box-shadow: inset -3px -5px rgb(175, 175, 175);
     font-weight: 500;
     font-family: FontDraxel;
+    overflow-wrap: normal;
     color: #20020e;
     font-size: 32px;
   }
@@ -768,6 +870,10 @@
     border: black 2px solid;
     background-color: #ffffff;
     box-shadow: inset -2px -2px gray;
+  }
+
+  .white-square:hover {
+    background-color: gray!important;
   }
   
   .center-right-container {
@@ -816,9 +922,9 @@
   
   .type-screen {
     font-family: fontDraxel;
+    color: white;
     width: 32px;
-    background-color: var(--secondary-screen-bg-color);
-    border: solid black 2px;
+    border: solid rgb(255, 255, 255) 2px;
     border-radius: 8px;
     font-size: 13px;
     font-weight: 500;

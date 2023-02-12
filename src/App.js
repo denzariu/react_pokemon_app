@@ -14,7 +14,7 @@ function App() {
                 </div>
             </main>
             {/* Footer links to Home and About, Link elements matched in router.jsx */}
-            <footer className="footer">
+            {/*<footer className="footer">
                 <div className="links">
                 <Link href="/">Home</Link>
                 <span className="divider">|</span>
@@ -26,6 +26,7 @@ function App() {
                 >
                 </a>
             </footer>
+            */}
         </Router>
     );
 }
