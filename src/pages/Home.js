@@ -31,7 +31,9 @@ export default function Home() {
         cancelToken: new axios.CancelToken(c => cancel = c)
     }).then(res => {
         
-        var obj = {name: res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1).toLowerCase(),
+        var obj = {
+                    id: res.data.id,
+                    name: res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1).toLowerCase(),
                     height: res.data.height,
                     weight: res.data.weight,
                     types: [res.data.types]}
@@ -43,6 +45,7 @@ export default function Home() {
         
         setPokemonDetails(obj)
         setLoading(false)
+        console.log(obj)
     })
 
       return () => cancel()

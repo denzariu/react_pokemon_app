@@ -44,6 +44,80 @@
     background-color: #98fe00;
   }
   
+
+  /* Pokemon types and colors */
+  #grass-type {
+    background-color: #7AC74C;
+  }
+
+  #poison-type {
+    background-color: #A33EA1; 
+  }
+
+  #normal-type {
+    background-color: #A8A77A;
+  }
+
+  #fire-type {
+    background-color: #EE8130;
+  }
+
+  #flying-type {
+    background-color: #A98FF3;
+  }
+
+  #fighting-type {
+    background-color: #C22E28;
+  }
+
+  #fairy-type {
+    background-color: #D685AD;
+  }
+
+  #water-type {
+    background-color: #6390F0;
+  }
+
+  #dragon-type {
+    background-color: #6F35FC;
+  }
+
+  #dark-type {
+    background-color: #705746;
+  }
+
+  #bug-type {
+    background-color: #A6B91A;
+  }
+
+  #electric-type {
+    background-color: #F7D02C;
+  }
+
+  #steel-type {
+    background-color: #B7B7CE;
+  }
+
+  #ground-type {
+    background-color: #E2BF65;
+  }
+
+  #psychic-type {
+    background-color: #F95587;
+  }
+
+  #ice-type {
+    background-color: #96D9D6;
+  }
+
+  #rock-type {
+    background-color: #B6A136;
+  }
+
+  #ghost-type {
+    background-color: #735797;
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -300,6 +374,21 @@
     top: 3px;
     left: 3px;
     border-radius: 50%;
+  }
+
+  #id-screen {
+    font-family: fontDraxel;
+    width: 24px;
+    background-color: rgb(245, 245, 235);
+    border: solid black 2px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 6px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
   }
   
   /* Center Screen */
@@ -585,17 +674,15 @@
     height: 64px;
     background-color: var(--secondary-screen-bg-color);
     border: solid black 2px;
-    border-radius: 4px;
+    border-radius: 8px;
     font-size: 13px;
     font-weight: 500;
-    padding-left: 2px;
-    padding-right: 2px;
+    padding: 0 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: left;
-    padding-left: 8px;
-    line-height: 1.5;
+    line-height: 1.25;
   }
   
   /* square buttons grid */
@@ -723,13 +810,32 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    height: auto;
+    padding: 4 2 0;
   }
   
+  .type-screen {
+    font-family: fontDraxel;
+    width: 32px;
+    background-color: var(--secondary-screen-bg-color);
+    border: solid black 2px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 12px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    line-height: 1.25;
+  }
+
   .bottom-screens-container .right-panel-screen {
     width: 64px;
     height: 25px;
     font-weight: 500;
-    padding: 0;
+    padding: 0 ;
+    
   }
   
   .mention {

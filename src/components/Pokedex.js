@@ -1,5 +1,6 @@
 import React from 'react'
 import PokemonImage from './PokemonImage'
+import PokemonType from './PokemonType'
 
 export default function Pokedex({ pokemonDetails, loading }) {
   return (
@@ -32,6 +33,7 @@ export default function Pokedex({ pokemonDetails, loading }) {
             </div>
           </div>
         </div>
+        
         <div className="screen-container">
           <div className="screen">
             <div className="top-screen-lights">
@@ -50,6 +52,8 @@ export default function Pokedex({ pokemonDetails, loading }) {
               <div className="small-light red">
                 <div className="dot light-red"></div>
               </div>
+              
+          <div id="id-screen">{pokemonDetails.id}</div>
               <div className="burger">
                 <div className="line"></div>
                 <div className="line"></div>
@@ -157,10 +161,7 @@ export default function Pokedex({ pokemonDetails, loading }) {
           </div>
         </div>
         <div className="bottom-screens-container">
-          {
-            pokemonDetails.types && (pokemonDetails.types[0]).map(type => { return <div id="type-screen" className="right-panel-screen" key={type.slot}>{type.type.name.toUpperCase()}</div> })
-            //<div id="id-screen" className="right-panel-screen">#1</div>
-          }
+          <PokemonType pokemonTypes={pokemonDetails.types}/>
         </div>
       </div>
     </div>
