@@ -90,8 +90,21 @@ const handleNextEvolution = () => {
     setCurrentPokemons(newCurrentPokemons)
   };
 
+  const handlePrevEvolution = () => {
+    const newCurrentPokemons = [currentPokemons[0], currentPokemons[1]-1, currentPokemons[2]]
+    console.log(newCurrentPokemons)
+    setCurrentPokemons(newCurrentPokemons)
+  };
+
   return (
     <>
+        
+        {pokemonChain && currentPokemons[1] > 0 && 
+            <div className="arrow-up" onClick={handlePrevEvolution}></div>
+        }
+        {!(pokemonChain && currentPokemons[1] > 0) && 
+            <div className="placeholder-arrow"></div>
+        }
         <div className="evolution-container"> {
             pokemonChain && pokemonChain.map((noEvolution, j) => noEvolution.map(pokemon => 
                 currentPokemons[j] == pokemon.index && 
@@ -106,8 +119,11 @@ const handleNextEvolution = () => {
                 </div>
             ))}
         </div>
-        {pokemonChain[1].length > 1 && 
+        {pokemonChain && pokemonChain[1].length - 1 > currentPokemons[1] && 
             <div className="arrow-down" onClick={handleNextEvolution}></div>
+        }
+        {!(pokemonChain && pokemonChain[1].length - 1 > currentPokemons[1]) && 
+            <div className="placeholder-arrow"></div>
         }
     </>
   )
