@@ -32,7 +32,6 @@ export default function Home() {
         var obj = {
                     id: res.data.id,
                     name: res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1).toLowerCase(),
-                    //name: res.data.name.toUpperCase(),
                     height: res.data.height,
                     weight: res.data.weight,
                     types: [res.data.types],
@@ -46,8 +45,6 @@ export default function Home() {
         
         setPokemonDetails(obj)
         setLoading(false)
-        console.log(obj)
-        console.log(obj.types[0][0].type.name)
     })
 
       return () => cancel()

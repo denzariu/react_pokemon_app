@@ -944,14 +944,41 @@
   }
 
   .evolution-screen {
-    flex: 1 0 30%;
+    flex: 0 0 30%;
     width: 50px;
+    height: 45px;
     justify-self: center;
     justify-items: center;
     background-color: var(--main-screen-bg-color);
     border: solid black 2px;
     border-radius: 5%;
   }
+
+  .arrow-down {
+    
+    height: 3px;
+    width: 3px;
+    margin-left: 69px;
+    margin-bottom: 9px;
+    
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 0px 2px 2px 0px;
+
+    /* color: white;
+    border-radius: 50%;
+    border: solid 1px black;
+    background-color: rgb(60, 218, 113); */
+
+  }
+
+  .arrow-down:hover {
+    border-color: #F7D02C;
+  }
+
   .type-screen {
     font-family: fontDraxel;
     color: white;

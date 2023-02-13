@@ -31,7 +31,7 @@ export default function PokemonImage({ pokemonImageUrl, pokemonName, loading }) 
                 </animated.div>
 
   const placeholder = 
-                <img src="/logo192.png" 
+                <img src="/placeholder.png" 
                     className="illustration" 
                     key={ v4() }
                     alt="Illustration click to change Pokemon" 
