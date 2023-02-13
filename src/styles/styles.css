@@ -524,8 +524,8 @@
   .illustration {
     justify-content: center;
     justify-self: center;
-    width: 97px;
-    height: 100px;
+    position: relative;
+    width: 100%;
     flex: 1;
   }
 
@@ -540,6 +540,8 @@
     display: grid;
   }
   
+
+
   .bottom-screen-lights {
     display: flex;
     margin-top: 5px;
@@ -920,6 +922,36 @@
     padding: 4 2 0;
   }
   
+  .bottom-screens-container-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+    padding: 4 2 0;
+  }
+
+  .evolution-container-container {
+    width: 150px;
+    height: 50px;
+  }
+
+  .evolution-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0px;
+  }
+
+  .evolution-screen {
+    flex: 1 0 30%;
+    width: 50px;
+    justify-self: center;
+    justify-items: center;
+    background-color: var(--main-screen-bg-color);
+    border: solid black 2px;
+    border-radius: 5%;
+  }
   .type-screen {
     font-family: fontDraxel;
     color: white;

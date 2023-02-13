@@ -1,6 +1,8 @@
 import React from 'react'
+import PokemonEvolutions from './PokemonEvolutions'
 import PokemonImage from './PokemonImage'
 import PokemonType from './PokemonType'
+import { v4 } from 'uuid'
 
 
 
@@ -50,12 +52,11 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
               <div className="mini-light red"></div>
             </div>
             <div id="main-screen" className={ pokemonDetails.types?.[0]?.[0].type.name + "-type-screen"}>
-            
-            <PokemonImage
-                pokemonImageUrl={shiny ? pokemonDetails.url_shiny : artwork ? pokemonDetails.url_artwork : pokemonDetails.url}
-                pokemonName={pokemonDetails.name}
-                loading={loading}
-            />
+                <PokemonImage
+                    pokemonImageUrl={shiny ? pokemonDetails.url_shiny : artwork ? pokemonDetails.url_artwork : pokemonDetails.url}
+                    pokemonName={pokemonDetails.name}
+                    loading={loading}
+                />
             </div>
             {/* <div id="main-screen"></div> */}
             <div className="bottom-screen-lights">
@@ -130,9 +131,9 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
         <div className="top-screen-container">
           <div id="about-screen" className="right-panel-screen">
             {pokemonDetails.stats && (pokemonDetails.stats.map(stat =>  
-                <>
-                    <div>{stat.stat.name.toUpperCase() + " " + "-".repeat(19 - stat.stat.name.length - stat.base_stat/99) + " " + stat.base_stat}</div>
-                </>
+                <div key={v4()}>
+                    {stat.stat.name.toUpperCase() + " " + "-".repeat(19 - stat.stat.name.length - stat.base_stat/99) + " " + stat.base_stat}
+                </div>
             ))}
           </div>
         </div>
@@ -164,6 +165,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
               <div className="white-square"></div>
               <div className="white-square"></div>
             </div>
+            
           </div>
           <div className="center-right-container">
             <div className="thin-buttons-container">
@@ -176,7 +178,14 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
           </div>
         </div>
         <div className="bottom-screens-container">
-          <PokemonType pokemonTypes={pokemonDetails.types}/>
+            <div className="bottom-screens-container-column">
+                <PokemonType pokemonTypes={pokemonDetails.types}/>
+            </div>
+            <div className="evolution-container-container">
+                <PokemonEvolutions
+                    pokemonId={pokemonDetails.id}
+                />
+            </div>
         </div>
       </div>
     </div>

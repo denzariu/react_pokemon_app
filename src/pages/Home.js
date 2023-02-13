@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useWiggle } from "../hooks/wiggle";
 import Pokedex from "../components/Pokedex";
 import axios from 'axios'
 
