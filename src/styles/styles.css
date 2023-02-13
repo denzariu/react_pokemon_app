@@ -526,6 +526,7 @@
     justify-self: center;
     position: relative;
     width: 100%;
+    max-width: 103px;
     flex: 1;
   }
 
