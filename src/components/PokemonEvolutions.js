@@ -30,6 +30,8 @@ React.useEffect(() => {
     }
 }, [pokemonId])
 
+
+// TODO: detect pokemon with more than 1 evolution path (if evolution.length > 1 => eevee route)
 React.useEffect(() => {
 
     if (evolutionChain) {

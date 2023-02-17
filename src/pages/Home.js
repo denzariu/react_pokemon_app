@@ -3,7 +3,7 @@ import Pokedex from "../components/Pokedex";
 import axios from 'axios'
 
 
-const noMaxPokemon = 898
+const noMaxPokemon = 1008
 const fileExtension = ".png"
 
 
