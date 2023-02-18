@@ -3,6 +3,11 @@ import axios from 'axios'
 import PokemonImage from './PokemonImage'
 import { v4 } from 'uuid'
 
+const evolutionTreeText = 
+        <div className="evolutions-title inline">
+                Evolution Tree
+        </div> 
+
 export default function PokemonEvolutions({ pokemonId }) {
 
 // This is for slicing the url to get Pokemon's IDs without an additional fetch
@@ -100,13 +105,15 @@ const handleNextEvolution = () => {
 
   return (
     <>
-        
-        {pokemonChain && currentPokemons[1] > 0 && 
-            <div className="arrow-up" onClick={handlePrevEvolution}></div>
-        }
-        {!(pokemonChain && currentPokemons[1] > 0) && 
-            <div className="placeholder-arrow"></div>
-        }
+        <div className="inline">
+            {evolutionTreeText}
+            { pokemonChain && currentPokemons[1] > 0 && 
+                <div className="arrow-up" onClick={handlePrevEvolution}></div>
+            }
+            {!(pokemonChain && currentPokemons[1] > 0) && 
+                <div className="placeholder-arrow"></div>
+            }
+        </div>
         <div className="evolution-container"> {
             pokemonChain && pokemonChain.map((noEvolution, j) => noEvolution.map(pokemon => 
                 currentPokemons[j] == pokemon.index && 

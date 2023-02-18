@@ -56,6 +56,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
                     pokemonImageUrl={shiny ? pokemonDetails.url_shiny : artwork ? pokemonDetails.url_artwork : pokemonDetails.url}
                     pokemonName={pokemonDetails.name}
                     loading={loading}
+                    animate={true}
                 />
             </div>
             {/* <div id="main-screen"></div> */}
@@ -65,7 +66,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
               </div>
               
           <div id="id-screen">{pokemonDetails.id}</div>
-              <div className="burger">
+              <div className="burger prevent-select">
                 <div className="line"></div>
                 <div className="line"></div>
                 <div className="line"></div>
@@ -75,7 +76,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
           </div>
         </div>
         <div className="buttons-container">
-          <div className="upper-buttons-container">
+          <div className="upper-buttons-container prevent-select">
             <div className="big-button"></div>
             <div className="long-buttons-container">
               <div className="long-button red"></div>
@@ -83,7 +84,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
             </div>
           </div>
           <div className="nav-buttons-container">
-            <div className="dots-container">
+            <div className="dots-container prevent-select">
               <div>.</div>
               <div>.</div>
               <div>.</div>
@@ -137,7 +138,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
             ))}
           </div>
         </div>
-        <div className="square-buttons-container">
+        <div className="square-buttons-container prevent-select">
           <div className="blue-squares-container">
             <div className="blue-square"></div>
             <div className="blue-square"></div>
@@ -161,13 +162,13 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
                 <div className="dot light-red"></div>
               </div>
             </div>
-            <div className="white-squares-container">
+            <div className="white-squares-container prevent-select">
               <div className="white-square"></div>
               <div className="white-square"></div>
             </div>
             
           </div>
-          <div className="center-right-container">
+          <div className="center-right-container prevent-select">
             <div className="thin-buttons-container">
               <div className="thin-button"></div>
               <div className="thin-button"></div>
@@ -177,7 +178,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
             </div>
           </div>
         </div>
-        <div className="bottom-screens-container">
+        <div className="bottom-screens-container prevent-select">
             <div className="bottom-screens-container-column">
                 <PokemonType pokemonTypes={pokemonDetails.types}/>
             </div>
@@ -187,6 +188,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
                 />
             </div>
         </div>
+        
       </div>
     </div>
     </div>

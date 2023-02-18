@@ -22,6 +22,12 @@
     --scale_factor: calc(2);
 }  
 
+/* Prevents text selection on elements aka "no text bar thing when selecting elements" */
+  .prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
 
   .red {
     background-color: #ff0000;
@@ -353,13 +359,13 @@
       width: 90%;
       transform: scale(0.5);
     }
-    /*
+    
     .blue-squares-container-ui {
       width: 70vw;
       transform: scale(0.5);
       flex-wrap: wrap;
     }
-    */
+    
   }
   
   @media only screen and (max-width: 1200px) {
@@ -370,13 +376,13 @@
     #pokedex {
       transform: scale(1);
     }
-    /*
+    
     .blue-squares-container-ui {
         width: 70vw;
         transform: scale(0.8);
         flex-wrap: wrap;
       }
-      */
+      
   }
 
   /* LEFT PANEL */
@@ -913,6 +919,19 @@
     border-radius: 50%;
   }
   
+  .evolutions-title {
+    display: flex;
+    justify-content: right;
+    font-family: FontDraxel;
+    color: white;
+    font-size: 9px;
+    padding: 0;
+  }
+
+  .inline {
+    display: flex;
+    flex-direction: row;
+  }
   /* bottom screens */
   
   .bottom-screens-container {
@@ -921,6 +940,7 @@
     align-items: center;
     height: auto;
     padding: 4 2 0;
+    margin-left: 4px;
   }
   
   .bottom-screens-container-column {
@@ -930,11 +950,13 @@
     align-items: center;
     height: auto;
     padding: 4 2 0;
+    mmargin-top: 16px;
   }
 
   .evolution-container-container {
     width: 150px;
     height: 64.3px;
+    padding-bottom: 2px;
   }
 
   .evolution-container {
@@ -990,8 +1012,9 @@
     
     height: 2px;
     width: 2px;
-    margin-left: 70px;
+    margin-left: 22px;
     margin-bottom: 0px;
+    margin-top: 3px;
     
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
@@ -999,7 +1022,11 @@
     border-width: 0 3px 3px 0;
     padding: 0px 2px 2px 0px;
   }
-  
+
+  .arrow-up:hover {
+    border-color: #F7D02C;
+  }
+
   .type-screen {
     font-family: fontDraxel;
     color: white;

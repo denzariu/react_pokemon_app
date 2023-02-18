@@ -5,10 +5,10 @@ import { v4 } from 'uuid'
 
 
 
-export default function PokemonImage({ pokemonImageUrl, pokemonName, loading }) {
+export default function PokemonImage({ pokemonImageUrl, pokemonName, loading, animate }) {
 
   const [loadedImage, setLoadingImage] = React.useState(false)
-  const [style, trigger] = useWiggle({ x: 2, y: -2, scale: 0.9 });
+  const [style, trigger] = useWiggle({ x: 1, y: 2, scale: 0.9 });
 
   React.useEffect(() => {
     setLoadingImage(false)
@@ -18,17 +18,19 @@ export default function PokemonImage({ pokemonImageUrl, pokemonName, loading }) 
     setLoadingImage(true)
   }
 
-  
+  const image = <img src={pokemonImageUrl}
+                    className="illustration"
+                    alt={"Illustration of " + pokemonName} 
+                    onLoad={handleLoadedImage}
+                    key={ v4() }/>  
 
-  const image = <animated.div onMouseEnter={trigger} 
+  const image_anim = <animated.div onMouseEnter={trigger} 
                     style={style} 
                     key={ v4() }>
-                            <img src={pokemonImageUrl}
-                                className="illustration"
-                                alt={"Illustration of " + pokemonName} 
-                                onLoad={handleLoadedImage}
-                                key={ v4() }/>
+                            {image}
                 </animated.div>
+    
+    
 
   const placeholder = 
                 <img src="/placeholder.png" 
@@ -42,8 +44,8 @@ export default function PokemonImage({ pokemonImageUrl, pokemonName, loading }) 
         {(loading && !loadedImage) &&
             placeholder
         }
-        {!loading &&
-            image
+        {
+            animate? !loading && image_anim : !loading && image
         }
     </div>
   )
