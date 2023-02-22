@@ -1,6 +1,7 @@
 # React Playground
 ### Project Idea: Make a nice Pokedex UI using PokeAPI
 ## Preview
+# Link: denzariu.github.io/react_pokemon_app
 <p align="center">
   <img src="https://user-images.githubusercontent.com/40743579/218337405-e86803a9-4444-4216-981c-40fb958f29ad.gif">
 </p>
