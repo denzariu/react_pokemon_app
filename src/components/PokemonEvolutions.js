@@ -108,7 +108,7 @@ const handleNextEvolution = () => {
         <div className="inline">
             {evolutionTreeText}
             { pokemonChain && currentPokemons[1] > 0 && 
-                <div className="arrow-up" onClick={handlePrevEvolution}></div>
+                <div className="arrow arrow-up" onClick={handlePrevEvolution}></div>
             }
             {!(pokemonChain && currentPokemons[1] > 0) && 
                 <div className="placeholder-arrow"></div>
@@ -128,12 +128,16 @@ const handleNextEvolution = () => {
                 </div>
             ))}
         </div>
-        {pokemonChain && pokemonChain[1].length - 1 > currentPokemons[1] && 
-            <div className="arrow-down" onClick={handleNextEvolution}></div>
-        }
-        {!(pokemonChain && pokemonChain[1].length - 1 > currentPokemons[1]) && 
-            <div className="placeholder-arrow"></div>
-        }
+        
+        <div className="inline">
+            
+            {pokemonChain && pokemonChain[1].length - 1 > currentPokemons[1] && 
+                <div className="arrow arrow-down" onClick={handleNextEvolution}></div>
+            }
+            {!(pokemonChain && pokemonChain[1].length - 1 > currentPokemons[1]) && 
+                <div className="placeholder-arrow"></div>
+            }
+        </div>
     </>
   )
 }

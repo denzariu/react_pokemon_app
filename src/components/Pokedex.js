@@ -25,7 +25,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
               style = {{fill: "none", stroke: "#000000", strokeWidth: 3}}
             />
           </svg>
-          <div className="lights-container">
+          <div className="lights-container prevent-select">
             <div className="big-light-boarder">
               <div className="big-light blue">
                 <div className="big-dot light-blue"></div>
@@ -45,7 +45,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
           </div>
         </div>
         
-        <div className="screen-container">
+        <div className="screen-container prevent-select">
           <div className="screen">
             <div className="top-screen-lights">
               <div className="mini-light red"></div>
@@ -60,7 +60,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
                 />
             </div>
             {/* <div id="main-screen"></div> */}
-            <div className="bottom-screen-lights">
+            <div className="bottom-screen-lights prevent-select">
               <div className={"small-light red " + (shiny ? "shiny" : "")} onClick={handleShinyChange}>
                 {!shiny && <div className="dot light-red"></div>}
               </div>
@@ -92,7 +92,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
             <div className="">
               <span id="name-screen">{pokemonDetails.name}</span>
             </div>
-            <div className="right-nav-container">
+            <div className="right-nav-container prevent-select">
               <div className="nav-button">
                 <div className="nav-center-circle"></div>
                 <div className="nav-button-vertical"></div>
@@ -133,12 +133,20 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
           <div id="about-screen" className="right-panel-screen">
             {pokemonDetails.stats && (pokemonDetails.stats.map(stat =>  
                 <div key={v4()}>
-                    {stat.stat.name.toUpperCase() + " " + "-".repeat(19 - stat.stat.name.length - stat.base_stat/99) + " " + stat.base_stat}
+                    {stat.stat.name.toUpperCase() + " " + ".".repeat(18 - stat.stat.name.length) + (stat.base_stat > 99? "." : ". ")  +  stat.base_stat}
                 </div>
             ))}
           </div>
         </div>
         <div className="square-buttons-container prevent-select">
+            <div className="small-reds-container">
+              <div className="small-light red">
+                <div className="dot light-red"></div>
+              </div>
+              <div className="small-light red">
+                <div className="dot light-red"></div>
+              </div>
+            </div>
           <div className="blue-squares-container">
             <div className="blue-square"></div>
             <div className="blue-square"></div>
@@ -152,16 +160,9 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
             <div className="blue-square"></div>
           </div>
         </div>
-        <div className="center-buttons-container">
+        <div className="center-buttons-container prevent-select">
           <div className="center-left-container">
-            <div className="small-reds-container">
-              <div className="small-light red">
-                <div className="dot light-red"></div>
-              </div>
-              <div className="small-light red">
-                <div className="dot light-red"></div>
-              </div>
-            </div>
+            
             <div className="white-squares-container prevent-select">
               <div className="white-square"></div>
               <div className="white-square"></div>
@@ -178,7 +179,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
             </div>
           </div>
         </div>
-        <div className="bottom-screens-container prevent-select">
+        <div className="bottom-screens-container margin-bottom-small prevent-select">
             <div className="bottom-screens-container-column">
                 <PokemonType pokemonTypes={pokemonDetails.types}/>
             </div>

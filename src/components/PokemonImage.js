@@ -30,10 +30,15 @@ export default function PokemonImage({ pokemonImageUrl, pokemonName, loading, an
                             {image}
                 </animated.div>
     
-    
+  const placeholderRotate = 
+                <img src="https://denzariu.github.io/react_pokemon_app/placeholder.png" 
+                    className="illustration rotating" 
+                    key={ v4() }
+                    alt="Illustration placeholder" 
+                />
 
-  const placeholder = 
-                <img src="./react_pokemon_app/placeholder.png" 
+  const placeholderImg = 
+                <img src="https://denzariu.github.io/react_pokemon_app/placeholder.png" 
                     className="illustration" 
                     key={ v4() }
                     alt="Illustration placeholder" 
@@ -43,12 +48,12 @@ export default function PokemonImage({ pokemonImageUrl, pokemonName, loading, an
     <>
         {
             ((loading && !loadedImage) &&
-            placeholder)
+            placeholderRotate)
 
         || 
         
             (animate? !loading && image_anim : !loading && 
-            pokemonImageUrl == "placeholder" ? placeholder : image)
+            pokemonImageUrl == "placeholder" ? placeholderImg : image)
         }
     </>
   )
