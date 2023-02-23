@@ -387,9 +387,7 @@
     .arrow-down {
         margin-left: 66px!important;
     }
-    .empty-container svg {
-        width: 95%!important;
-    }
+    
   }
   
   @media only screen and (max-width: 1200px) {
