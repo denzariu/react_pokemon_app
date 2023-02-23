@@ -78,7 +78,7 @@ React.useEffect(() => {
             while (j < 3) {
                 pokemonChainTemp[j].push({
                     index : 0,
-                    url : "placeholder" + ".png",
+                    url : "placeholder",
                     name : "No Data"
                 })
                 j++
