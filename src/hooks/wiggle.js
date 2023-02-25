@@ -7,12 +7,12 @@ import { usePrefersReducedMotion } from "./prefers-reduced-motion";
 export function useWiggle({
   x = 0,
   y = 0,
-  rotation = 10,
+  rotation = 5,
   scale = 1,
-  timing = 150,
+  timing = 250,
   springConfig = {
     tension: 400,
-    friction: 8
+    friction: 21
   }
 }) {
   // Accessibility setting from the user system indicating that they prefer to minimize motion

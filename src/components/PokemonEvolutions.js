@@ -105,7 +105,7 @@ const handleNextEvolution = () => {
 
   return (
     <>
-        <div className="inline">
+        {/* <div className="inline">
             {evolutionTreeText}
             { pokemonChain && currentPokemons[1] > 0 && 
                 <div className="arrow arrow-up" onClick={handlePrevEvolution}></div>
@@ -113,6 +113,12 @@ const handleNextEvolution = () => {
             {!(pokemonChain && currentPokemons[1] > 0) && 
                 <div className="placeholder-arrow"></div>
             }
+        </div> */}
+        <div className="inline small-gap">
+
+            <div className="evolution-name-screen center-container">Name 1</div>
+            <div className="evolution-name-screen center-container">Name 2</div>
+            <div className="evolution-name-screen center-container">Name 3</div>
         </div>
         <div className="evolution-container"> {
             pokemonChain && pokemonChain.map((noEvolution, j) => noEvolution.map(pokemon => 
