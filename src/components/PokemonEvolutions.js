@@ -59,7 +59,7 @@ React.useEffect(() => {
                 pokemonChainTemp[j].push({
                     index : i,
                     url : spriteUrl + pokemonEntry.species.url.slice(charactersInLink).slice(0, -1) + ".png",
-                    name : pokemonEntry.species.name
+                    name : pokemonEntry.species.name.charAt(0).toUpperCase() + pokemonEntry.species.name.slice(1)
                 })
                 if (evolutionId == "67") {
                     j == 0 ? i = 0 : i++
@@ -105,45 +105,59 @@ const handleNextEvolution = () => {
 
   return (
     <>
-        {/* <div className="inline">
-            {evolutionTreeText}
-            { pokemonChain && currentPokemons[1] > 0 && 
-                <div className="arrow arrow-up" onClick={handlePrevEvolution}></div>
-            }
-            {!(pokemonChain && currentPokemons[1] > 0) && 
-                <div className="placeholder-arrow"></div>
-            }
-        </div> */}
-        <div className="inline small-gap">
+        
 
-            <div className="evolution-name-screen center-container">Name 1</div>
-            <div className="evolution-name-screen center-container">Name 2</div>
-            <div className="evolution-name-screen center-container">Name 3</div>
-        </div>
+        {
+            <div className="inline small-gap evolution-name-container">
+            {    
+                pokemonChain ? pokemonChain && pokemonChain.map((noEvolution, j) => noEvolution.map(pokemon =>
+                    currentPokemons[j] == pokemon.index && 
+                    <div key={v4()} className="evolution-name-screen">{pokemon.name}</div>))
+                    :
+                    <div className="evolution-name-screen enter-container">No Data</div>
+            }
+            </div>
+        }
+        
         <div className="evolution-container"> {
             pokemonChain && pokemonChain.map((noEvolution, j) => noEvolution.map(pokemon => 
+                
                 currentPokemons[j] == pokemon.index && 
-                <div key={ v4() }
-                className="evolution-screen"> 
+                
+                <div key={ v4() } className="evolution-screen"> 
+                        {
+                            (pokemonChain && currentPokemons[j] > 0 && 
+                            <div className="arrow arrow-up" onClick={handlePrevEvolution}></div>) 
+                                
+                        }
                         <PokemonImage key={ v4() }
                                 pokemonImageUrl={pokemon.url}
                                 pokemonName={pokemon.name}
                                 loading={loading}
                                 index={pokemon.index}
                         />
+                        {
+                            (pokemonChain && pokemonChain[j].length - 1 > currentPokemons[j] && 
+                            <div className="arrow arrow-down" onClick={handleNextEvolution}></div>)
+                        }
+                
                 </div>
+               
+                
+                
+                
             ))}
         </div>
         
-        <div className="inline">
+        {/* <div className="inline">
             
             {pokemonChain && pokemonChain[1].length - 1 > currentPokemons[1] && 
                 <div className="arrow arrow-down" onClick={handleNextEvolution}></div>
             }
-            {!(pokemonChain && pokemonChain[1].length - 1 > currentPokemons[1]) && 
+            { {!(pokemonChain && pokemonChain[1].length - 1 > currentPokemons[1]) && 
                 <div className="placeholder-arrow"></div>
             }
-        </div>
+        </div> */}
     </>
   )
 }
