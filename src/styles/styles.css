@@ -373,27 +373,29 @@
     .evolution-container-container {
         padding-left: 5px;
     }
+    .evolution-name-container {
+        width: 95%!important;
+    }
+
+    
     .evolution-container {
-        width: 90%!important;
-        height: 72%!important;
+        width: 95%!important;
+        height: 77%!important;
     }
     .evolution-screen {
         width: 80%!important;
         height: 90%!important;
     }   
     .arrow {
-        mmargin-left: 17px!important;
+        margin-left: 69px!important;
     }
     .arrow-down {
-        mmargin-left: 66px!important;
+        margin-left: 69px!important;
     }
-    .evolution-name-container {
-        width: 90%!important;
-    }
-  }
+}
 
   
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (min-width: 601px) and ( max-width: 1200px) {
     #pokedex-container {
         height: calc(342px * 1);
         width: calc(228px * 2 * 1);
@@ -407,6 +409,12 @@
         transform: scale(0.8);
         flex-wrap: wrap;
       }
+    .arrow {
+        margin-left: 72px!important;
+    }
+    .arrow-down {
+        margin-left: 72px!important;
+    }
   }
 
   /* LEFT PANEL */
@@ -970,6 +978,14 @@
     flex-direction: row;
   }
 
+  .inline-no-height {
+    position:fixed;
+    z-index: 900;
+    height: 0px;
+    display: flex;
+    flex-direction: row;
+  }
+
   .margin-top-small {
     margin-top: 4px;
   }
@@ -995,11 +1011,10 @@
     align-items: center;
     height: auto;
     gap: 4px;
-    ppadding: 4px 2px 0;
-    mmargin-top: 16px;
   }
 
   .evolution-container-container {
+    z-index: 800;
     width: 150px;
     height: 64.3px;
     padding-bottom: 2px;
@@ -1016,7 +1031,10 @@
     gap: 1px;
   }
 
- 
+  .evolution-name-container {
+    width: 100%;
+  }
+
 
   .evolution-name-screen {
     display: flex;
@@ -1050,33 +1068,21 @@
     flex-direction: column;
   }
 
-  .placeholder-arrow {
-    height: 2px;
-    width: 2px;
-    margin-left: 0px;
-    margin-bottom: 0px;
-    
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    border: solid black;
-    border-width: 0 0px 0px 0;
-    padding: 0px 2px 2px 0px;
-  }
-
   .arrow {
-    align-self: center;
-    height: 2px;
-    width: 2px;
+    flex: 0 0;
+    margin-left: 72px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    
     
     border: solid black;
     border-width: 0 3px 3px 0;
-    padding: 0px 2px 4px 0px;
+    padding: 0px 3px 3px 0px;
   }
 
   .arrow-down {
-    margin-top: 3px;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
+    transform: translateY(-4px) rotate(45deg);
+    -webkit-transform: translateY(-4px) rotate(45deg);
   }
 
   .arrow-down:hover {
@@ -1084,9 +1090,8 @@
   }
 
   .arrow-up {
-    mmargin-top: 3px;
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
+    transform: translateY(3px) rotate(-135deg);
+    -webkit-transform: translateY(3px) rotate(-135deg);
   }
 
   .arrow-up:hover {

@@ -105,10 +105,15 @@ const handleNextEvolution = () => {
 
   return (
     <>
-        
-
         {
-            <div className="inline small-gap evolution-name-container">
+            <div className="inline-no-height">
+                {/*evolutionTreeText*/}
+                { pokemonChain && currentPokemons[1] > 0 && 
+                    <div className="arrow arrow-up" onClick={handlePrevEvolution}></div>
+                }
+            </div> 
+        }    
+        <div className="inline small-gap evolution-name-container">
             {    
                 pokemonChain ? pokemonChain && pokemonChain.map((noEvolution, j) => noEvolution.map(pokemon =>
                     currentPokemons[j] == pokemon.index && 
@@ -116,9 +121,7 @@ const handleNextEvolution = () => {
                     :
                     <div className="evolution-name-screen enter-container">No Data</div>
             }
-            </div>
-        }
-        
+        </div>
         <div className="evolution-container"> {
             pokemonChain && pokemonChain.map((noEvolution, j) => noEvolution.map(pokemon => 
                 
@@ -149,15 +152,11 @@ const handleNextEvolution = () => {
             ))}
         </div>
         
-        {/* <div className="inline">
-            
+        <div className="inline-no-height">
             {pokemonChain && pokemonChain[1].length - 1 > currentPokemons[1] && 
                 <div className="arrow arrow-down" onClick={handleNextEvolution}></div>
             }
-            { {!(pokemonChain && pokemonChain[1].length - 1 > currentPokemons[1]) && 
-                <div className="placeholder-arrow"></div>
-            }
-        </div> */}
+        </div>
     </>
   )
 }
