@@ -1,6 +1,6 @@
 ### Project: Making a nice Pokedex UI in React using PokeAPI
 
-### Preview Website: [Interactive Preview](denzariu.github.io/react_pokemon_app)
+### Preview Website: [Interactive Preview](https://denzariu.github.io/react_pokemon_app/)
 
 ## Older previews:
 <p align="center">
