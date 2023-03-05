@@ -1,7 +1,7 @@
 {
   "name": "react_pokemon_app",
   "version": "0.1.0",
-  "homepage": "https://denzariu.github.io/react_pokemon_app/#",
+  "homepage": "https://denzariu.github.io/react_pokemon_app/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

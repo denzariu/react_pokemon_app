@@ -4,19 +4,39 @@ import PokemonImage from './PokemonImage'
 import { v4 } from 'uuid'
 
 const evolutionTreeText = 
-        <div className="evolutions-title inline">
+        <div className="evolutions-title inline-no-height two-px-up">
                 Evolution Tree
         </div> 
+
+const placeholderCurrentPokemons = [
+    {
+        index : 0,
+        url : "placeholder",
+        name : "No Data"
+    },
+    {
+        index : 0,
+        url : "placeholder",
+        name : "No Data",
+        num_evolutions : 1
+    },
+    {
+        index : 0,
+        url : "placeholder",
+        name : "No Data",
+        num_evolutions : 1
+    },
+]
 
 export default function PokemonEvolutions({ pokemonId }) {
 
 // This is for slicing the url to get Pokemon's IDs without an additional fetch
 const charactersInLink = 42
-const [evolutionId, setEvolutionId] = React.useState()
 const [evolutionChain, setEvolutionChain] = React.useState()
 const [pokemonChain, setPokemonChain] = React.useState()
 const [loading, setLoading] = React.useState()
 const [currentPokemons, setCurrentPokemons] = React.useState([0,0,0])
+const [currentPokemonsData, setCurrentPokemonsData] = React.useState(placeholderCurrentPokemons)
 
 // Fetches the pokemon species with PokemonId, then identifies its evolution chain 
 React.useEffect(() => {
@@ -30,133 +50,221 @@ React.useEffect(() => {
             setEvolutionChain(res.data.evolution_chain.url)
             setCurrentPokemons([0,0,0])
             console.log(res.data.evolution_chain.url.slice(charactersInLink).slice(0, -1))
-            setEvolutionId(res.data.evolution_chain.url.slice(charactersInLink).slice(0, -1))
         })
     }
 }, [pokemonId])
 
-
-// TODO: detect pokemon with more than 1 evolution path (if evolution.length > 1 => eevee route)
+// Store pokemon evolution tree
 React.useEffect(() => {
 
     if (evolutionChain) {
         setLoading(true)
+        setCurrentPokemonsData(placeholderCurrentPokemons)
         let cancel
         axios.get(evolutionChain, {
             cancelToken: new axios.CancelToken(c => cancel = c)
         }).then(res => {
             
-            let i = 0
-            let j = 0
-            let pokemonChainTemp = [[],[],[]]
-            let pokemonEntry = res.data.chain
-        
+            let pokemonChain = res.data.chain
             let spriteUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" 
-            
-            // Find & store data of every pokemon in the evolution chain 
-            while (pokemonEntry) {
-                
-                pokemonChainTemp[j].push({
-                    index : i,
-                    url : spriteUrl + pokemonEntry.species.url.slice(charactersInLink).slice(0, -1) + ".png",
-                    name : pokemonEntry.species.name.charAt(0).toUpperCase() + pokemonEntry.species.name.slice(1)
-                })
-                if (evolutionId == "67") {
-                    j == 0 ? i = 0 : i++
-                    pokemonEntry = res.data.chain.evolves_to[i]
-                    j = 1
-                }
-                else {
-                    pokemonEntry = pokemonEntry.evolves_to[0]
-                    j++
-                    i = 0
-                }
+
+            /*
+            The following code breaks the response into a easier-to-read tree structure.
+            It attaches nodes bottom-up.
+
+            O - nextEv: {
+                            nextEv: {
+                                    nextEv: null
+                                    name: XX
+                                    url:  YY
+                                  }
+                            name: XXX
+                            url:  YYY
+                        }
+                        ----
+                        ----
+
+              - name:   XXXX
+              - url:    YYYY
+            */
+
+            let root_tree = []
+            let children = pokemonChain.evolves_to
+            children.map(child => {
+                    if (child) {
+                        console.log(child)
+                        let child_tree = []
+                        let c_of_c = child.evolves_to
+                        c_of_c.map(child_of_child => {
+                            if (child_of_child)
+                                child_tree.push({
+                                    nextEv  : null, 
+                                    name    : child_of_child.species.name.charAt(0).toUpperCase() + child_of_child.species.name.slice(1),
+                                    url     : spriteUrl + child_of_child.species.url.slice(charactersInLink).slice(0, -1) + ".png"
+                                })
+                        })
+                        root_tree.push({
+                            nextEv  : child_tree, 
+                            name    : child.species.name.charAt(0).toUpperCase() + child.species.name.slice(1),
+                            url     : spriteUrl + child.species.url.slice(charactersInLink).slice(0, -1) + ".png"
+                        })
+                    }
+            });
+
+            let pokemonChainTemp = {
+                nextEv  : root_tree, 
+                name    : pokemonChain.species.name.charAt(0).toUpperCase() + pokemonChain.species.name.slice(1),
+                url     : spriteUrl + pokemonChain.species.url.slice(charactersInLink).slice(0, -1) + ".png"
             }
             
-            if (evolutionId == "67") j++
-            
-            while (j < 3) {
-                pokemonChainTemp[j].push({
-                    index : 0,
-                    url : "placeholder",
-                    name : "No Data"
-                })
-                j++
-            }
-        console.log(pokemonChainTemp)
-        setPokemonChain(pokemonChainTemp)
-        setLoading(false)
+            setPokemonChain(pokemonChainTemp)
+            setCurrentPokemons([0,0,0])
+            setLoading(false)
         })
     }
     
 }, [evolutionChain])
 
-const handleNextEvolution = () => {
-    const newCurrentPokemons = [currentPokemons[0], currentPokemons[1]+1, currentPokemons[2]]
-    console.log(newCurrentPokemons)
-    setCurrentPokemons(newCurrentPokemons)
-  };
 
-  const handlePrevEvolution = () => {
-    const newCurrentPokemons = [currentPokemons[0], currentPokemons[1]-1, currentPokemons[2]]
-    console.log(newCurrentPokemons)
-    setCurrentPokemons(newCurrentPokemons)
-  };
+React.useEffect(() => {
+
+    // If input isn't ready yet, return placeholder data 
+    if (!pokemonChain) {
+        setCurrentPokemonsData(placeholderCurrentPokemons)
+        return
+    }
+
+    // Shortcuts for easier-to-read code
+    let secondPokemon = pokemonChain.nextEv[currentPokemons[1]] 
+    let thirdPokemon  = secondPokemon && secondPokemon.nextEv ? secondPokemon.nextEv[currentPokemons[2]] : null
+    let secondPokemon_noEv = pokemonChain.nextEv ? pokemonChain.nextEv.length : 0
+    let thirdPokemon_noEv  = secondPokemon && secondPokemon.nextEv ? secondPokemon.nextEv.length : 0
+
+    // Update data
+    setCurrentPokemonsData([
+        {
+            index : currentPokemons[0],
+            url   : pokemonChain ? pokemonChain.url : "placeholder",
+            name  : pokemonChain ? pokemonChain.name : "No Data",
+        },
+        {
+            index : currentPokemons[1],
+            url   : (pokemonChain && secondPokemon) ? secondPokemon.url : "placeholder",
+            name  : (pokemonChain && secondPokemon) ? secondPokemon.name : "No Data",
+            num_evolutions : secondPokemon_noEv
+        },
+        {
+            index : currentPokemons[2],
+            url   : (pokemonChain && thirdPokemon) ? thirdPokemon.url : "placeholder",
+            name  : (pokemonChain && thirdPokemon) ? thirdPokemon.name : "No Data",
+            num_evolutions : thirdPokemon_noEv
+        }
+    ])
+
+    console.log(currentPokemonsData)
+    
+}, [currentPokemons])
+
+// This handles the path from root to 3rd pokemon evolution in a binary way
+function handleNextEvolution (j) {
+    console.log(j);
+    setCurrentPokemons(currentPokemons => currentPokemons.map((currentPokemon, i) => i === j ? currentPokemon + 1 : currentPokemon));
+    console.log(currentPokemons)
+};
+
+function handlePrevEvolution (j) {
+    console.log(j);
+    setCurrentPokemons(currentPokemons => currentPokemons.map((currentPokemon, i) => i === j ? currentPokemon - 1 : currentPokemon));
+    console.log(currentPokemons)
+};
 
   return (
-    <>
+    <> 
         {
-            <div className="inline-no-height">
-                {/*evolutionTreeText*/}
-                { pokemonChain && currentPokemons[1] > 0 && 
-                    <div className="arrow arrow-up" onClick={handlePrevEvolution}></div>
-                }
-            </div> 
-        }    
+            evolutionTreeText
+        }
         <div className="inline small-gap evolution-name-container">
             {    
-                pokemonChain ? pokemonChain && pokemonChain.map((noEvolution, j) => noEvolution.map(pokemon =>
-                    currentPokemons[j] == pokemon.index && 
-                    <div key={v4()} className="evolution-name-screen">{pokemon.name}</div>))
+                (pokemonChain && !loading) ?
+                    <div key={v4()} className="evolution-name-screen">{currentPokemonsData[0].name}</div>
+                    :
+                    <div className="evolution-name-screen enter-container">No Data</div>
+                
+                
+            }
+            {
+                (pokemonChain && !loading)  ? 
+                    <div key={v4()} className="evolution-name-screen">{currentPokemonsData[1].name}</div>
                     :
                     <div className="evolution-name-screen enter-container">No Data</div>
             }
-        </div>
-        <div className="evolution-container"> {
-            pokemonChain && pokemonChain.map((noEvolution, j) => noEvolution.map(pokemon => 
-                
-                currentPokemons[j] == pokemon.index && 
-                
-                <div key={ v4() } className="evolution-screen"> 
-                        {
-                            (pokemonChain && currentPokemons[j] > 0 && 
-                            <div className="arrow arrow-up" onClick={handlePrevEvolution}></div>) 
-                                
-                        }
-                        <PokemonImage key={ v4() }
-                                pokemonImageUrl={pokemon.url}
-                                pokemonName={pokemon.name}
-                                loading={loading}
-                                index={pokemon.index}
-                        />
-                        {
-                            (pokemonChain && pokemonChain[j].length - 1 > currentPokemons[j] && 
-                            <div className="arrow arrow-down" onClick={handleNextEvolution}></div>)
-                        }
-                
-                </div>
-               
-                
-                
-                
-            ))}
+            {
+                (pokemonChain && !loading)  ? 
+                    <div key={v4()} className="evolution-name-screen">{currentPokemonsData[2].name}</div>
+                    :
+                    <div className="evolution-name-screen enter-container">No Data</div>
+            }
+            
         </div>
         
-        <div className="inline-no-height">
-            {pokemonChain && pokemonChain[1].length - 1 > currentPokemons[1] && 
-                <div className="arrow arrow-down" onClick={handleNextEvolution}></div>
-            }
+        <div className="evolution-container"> 
+           <div key={ v4() } className="evolution-screen"> 
+                <div className="inline-no-height">
+                    { currentPokemons[0] > 0 && 
+                        <div className="arrow arrow-up" type="button" onClick={() => {handlePrevEvolution(0)}}></div>
+                    }
+                </div> 
+                                
+                <PokemonImage key={ v4() }
+                            pokemonImageUrl={currentPokemonsData[0].url}
+                            pokemonName={currentPokemonsData[0].name}
+                            loading={loading}
+                            index={currentPokemonsData[0].index}
+                />
+        
+            </div>
+            <div key={ v4() } className="evolution-screen"> 
+                <div className="inline-no-height">
+                    { currentPokemons[1] > 0 && 
+                        <div className="arrow arrow-up" type="button" onClick={() => {handlePrevEvolution(1)}}></div>
+                    }
+                </div> 
+                            
+                <PokemonImage key={ v4() }
+                            pokemonImageUrl={currentPokemonsData[1].url}
+                            pokemonName={currentPokemonsData[1].name}
+                            loading={loading}
+                            index={currentPokemonsData[1].index}
+                />
+                    
+                <div className="inline-no-height">
+                    { currentPokemonsData[1].num_evolutions - 1 > currentPokemons[1] &&
+                        <div className="arrow arrow-down" type="button" onClick={() => {handleNextEvolution(1)}}></div>
+                    }
+                </div>
+            </div>
+            <div key={ v4() } className="evolution-screen"> 
+                <div className="inline-no-height">
+                    { currentPokemons[2] > 0 && 
+                        <div className="arrow arrow-up" type="button" onClick={() => {handlePrevEvolution(2)}}></div>
+                    }
+                </div> 
+                            
+                <PokemonImage key={ v4() }
+                            pokemonImageUrl={currentPokemonsData[2].url}
+                            pokemonName={currentPokemonsData[2].name}
+                            loading={loading}
+                            index={currentPokemonsData[2].index}
+                />
+                    
+                <div className="inline-no-height">
+                    { currentPokemonsData[2].num_evolutions - 1 > currentPokemons[2] && 
+                        <div className="arrow arrow-down" type="button" onClick={() => {handleNextEvolution(2)}}></div>
+                    }
+                </div>
+            </div>
         </div>
+        
     </>
   )
 }

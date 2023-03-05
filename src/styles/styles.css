@@ -387,10 +387,10 @@
         height: 90%!important;
     }   
     .arrow {
-        margin-left: 69px!important;
+        margin-left: 19px!important;
     }
     .arrow-down {
-        margin-left: 69px!important;
+        margin-left: 19px!important;
     }
 }
 
@@ -408,12 +408,18 @@
         width: 70vw;
         transform: scale(0.8);
         flex-wrap: wrap;
-      }
+    }
+
+    .evolution-screen {
+        width: 80%!important;
+        height: 90%!important;
+    }  
+
     .arrow {
-        margin-left: 72px!important;
+        margin-left: 20px!important;
     }
     .arrow-down {
-        margin-left: 72px!important;
+        margin-left: 20px!important;
     }
   }
 
@@ -1058,7 +1064,7 @@
   .evolution-screen {
     flex: 0 0 30%;
     width: 50px;
-    height: 60px;
+    height: 45px;
     justify-self: center;
     justify-items: center;
     background-color: var(--main-screen-bg-color);
@@ -1068,9 +1074,13 @@
     flex-direction: column;
   }
 
+  .two-px-up {
+    transform: translateY(-6px);
+  }
+
   .arrow {
     flex: 0 0;
-    margin-left: 72px;
+    margin-left: 20px;
     margin-bottom: 0px;
     margin-top: 0px;
     
@@ -1081,8 +1091,8 @@
   }
 
   .arrow-down {
-    transform: translateY(-4px) rotate(45deg);
-    -webkit-transform: translateY(-4px) rotate(45deg);
+    transform: translateY(43px) rotate(45deg);
+    -webkit-transform: translateY(43px) rotate(45deg);
   }
 
   .arrow-down:hover {
@@ -1090,8 +1100,8 @@
   }
 
   .arrow-up {
-    transform: translateY(3px) rotate(-135deg);
-    -webkit-transform: translateY(3px) rotate(-135deg);
+    transform: translateY(0px) rotate(-135deg);
+    -webkit-transform: translateY(-0px) rotate(-135deg);
   }
 
   .arrow-up:hover {
