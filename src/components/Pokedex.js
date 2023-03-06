@@ -8,12 +8,12 @@ import { v4 } from 'uuid'
 
 export default function Pokedex({ pokemonDetails, loading, artwork }) {
 
-    const [shiny, setShiny] = React.useState(false)
+  const [shiny, setShiny] = React.useState(false)
     
-    const handleShinyChange = () => {
+  const handleShinyChange = () => {
         const newShiny = !shiny
         setShiny(newShiny)
-    }
+  }
   return (
     <div id="pokedex-container">
     <div id="pokedex">
@@ -50,6 +50,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
             <div className="top-screen-lights">
               <div className="mini-light red"></div>
               <div className="mini-light red"></div>
+              
             </div>
             <div id="main-screen" className={ pokemonDetails.types?.[0]?.[0].type.name + "-type-screen"}>
                 <PokemonImage
@@ -58,6 +59,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
                     loading={loading}
                     animate={true}
                 />
+                
             </div>
             {/* <div id="main-screen"></div> */}
             <div className="bottom-screen-lights prevent-select">
@@ -65,7 +67,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
                 {!shiny && <div className="dot light-red"></div>}
               </div>
               
-          <div id="id-screen">{pokemonDetails.id}</div>
+              <div id="id-screen">{pokemonDetails.id}</div>
               <div className="burger prevent-select">
                 <div className="line"></div>
                 <div className="line"></div>
@@ -129,7 +131,12 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
             />
           </svg>
         </div>
+        
         <div className="top-screen-container">
+          <div className="inline-no-height">
+                  <div className="info-height-weight height-transform">{"Height: " + pokemonDetails.height/10 + "m"}</div>
+                  <div className="info-height-weight weight-transform">{"Weight: " + pokemonDetails.weight/10 + "kg"}</div>
+          </div>
           <div id="about-screen" className="right-panel-screen">
             {pokemonDetails.stats && (pokemonDetails.stats.map(stat =>  
                 <div key={v4()}>

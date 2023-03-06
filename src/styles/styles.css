@@ -530,7 +530,30 @@
     justify-content: center;
     text-align: left;
   }
+
+  .info-height-weight {
+    font-family: fontDraxel;
+    width: 44px;
+    height: 7px;
+    background-color: rgb(245, 245, 235);
+    border: solid black 2px;
+    border-radius: 2px;
+    font-size: 9px;
+    font-weight: 500;
+    padding: 2px 4px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+  }
   
+  
+  .height-transform {
+    transform: translateX(-27px) translateY(-45px);
+  }
+  .weight-transform {
+    transform: translateX(-29px) translateY(-45px);
+  }
   /* Center Screen */
   
   .screen-container {
@@ -1074,8 +1097,8 @@
     flex-direction: column;
   }
 
-  .two-px-up {
-    transform: translateY(-6px);
+  .evolution-px-up-right {
+    transform: translateY(-6px) translateX(2px);
   }
 
   .arrow {
@@ -1129,6 +1152,10 @@
     font-weight: 500;
     padding: 0;
     
+  }
+
+  .flex-max {
+    flex: 1 1 100;
   }
   
   .mention {
@@ -1189,3 +1216,38 @@
     -o-animation: rotating 2s linear infinite;
     animation: rotating 2s linear infinite;
   }
+
+
+  /* Abilities CSS */
+
+  #abilities-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(342px * var(--scale_factor));
+    width: calc(228px * 2 * var(--scale_factor));
+    gap: 1px;
+  }
+
+  .abilities-background-ui {
+    flex: 0 0 100;
+    align-self: center;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    height: calc(45px * var(--scale_factor));
+    width: calc(150px * 2 * var(--scale_factor));
+    padding: 18px 8px;
+    border-radius: 12px;
+    border: black 3px solid;
+    background-color: rgb(245, 245, 235);
+    box-shadow: inset -3px -5px rgb(175, 175, 175);
+    font-weight: 500;
+    font-family: FontDraxel;
+    overflow-wrap: normal;
+    color: #20020e;
+    font-size: 32px;
+  }
+
+  

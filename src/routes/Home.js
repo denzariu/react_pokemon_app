@@ -1,7 +1,7 @@
 import React from "react";
 import Pokedex from "../components/Pokedex";
 import axios from 'axios'
-
+import { useNavigate } from 'react-router-dom';
 
 const noMaxPokemon = 1008
 const fileExtension = ".png"
@@ -9,6 +9,7 @@ const fileExtension = ".png"
 
 export default function Home() {
   
+  const navigate = useNavigate();
   const [pokemonID, setPokemonID] = React.useState("1");
 
   
@@ -102,8 +103,12 @@ export default function Home() {
 
                 <button className="blue-square-ui" onClick={handleArtwork}>
                         Artwork Change
-                </button> 
+                </button>
+                <button className="blue-square-ui flex-max" onClick={() => navigate('/abilities')}>
+                        Browse Abilities
+                </button>
         </div>
+        
       </div>
     </>
   );

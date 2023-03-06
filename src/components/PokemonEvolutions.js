@@ -4,7 +4,7 @@ import PokemonImage from './PokemonImage'
 import { v4 } from 'uuid'
 
 const evolutionTreeText = 
-        <div className="evolutions-title inline-no-height two-px-up">
+        <div className="evolutions-title inline-no-height evolution-px-up-right">
                 Evolution Tree
         </div> 
 
@@ -49,6 +49,7 @@ React.useEffect(() => {
         }).then(res => {
             setEvolutionChain(res.data.evolution_chain.url)
             setCurrentPokemons([0,0,0])
+            
             console.log(res.data.evolution_chain.url.slice(charactersInLink).slice(0, -1))
         })
     }
