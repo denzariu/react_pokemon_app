@@ -1221,33 +1221,39 @@
   /* Abilities CSS */
 
   #abilities-container {
-    display: flex;
-    flex-direction: column;
+    ddisplay: flex;
+    fflex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+
     justify-content: center;
     align-items: center;
     height: calc(342px * var(--scale_factor));
-    width: calc(228px * 2 * var(--scale_factor));
+    width: calc(36px * 5 * 2 * var(--scale_factor));
     gap: 1px;
   }
 
   .abilities-background-ui {
-    flex: 0 0 100;
+    flex: 0 0;
+    display: flex;
+    wwidth: 150px;
     align-self: center;
     justify-content: center;
     justify-self: center;
     align-items: center;
-    height: calc(45px * var(--scale_factor));
-    width: calc(150px * 2 * var(--scale_factor));
+    height: calc(10px * var(--scale_factor));
+    width: calc(30px * 2 * var(--scale_factor));
     padding: 18px 8px;
     border-radius: 12px;
-    border: black 3px solid;
-    background-color: rgb(245, 245, 235);
-    box-shadow: inset -3px -5px rgb(175, 175, 175);
+    border: #d5bdaf 3px solid;
+    background-color: #edede9;
+    box-shadow: inset -3px -5px #d6ccc2;
+    color: #ab7a5e;
     font-weight: 500;
     font-family: FontDraxel;
     overflow-wrap: normal;
-    color: #20020e;
-    font-size: 32px;
+    font-size: 18px;
   }
 
   
