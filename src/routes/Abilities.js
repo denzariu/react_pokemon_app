@@ -25,7 +25,7 @@ export default function Abilities() {
         setLoading(false)
         setPrevPageUrl(res.data.previous)
         setNextPageUrl(res.data.next)
-        setAbilities(res.data.results.map( ability => ability.url ))
+        setAbilities(res.data.results.map( ability => [ability.url, ability.name] ))
         console.log(abilities)
     })
 
@@ -56,9 +56,10 @@ function gotoPrevPage() {
 
         <div id='abilities-container'>
             {
-                abilities && abilities.map( abilityUrl => (
+                abilities && abilities.map( ability => (
                 <Ability key={v4()}
-                    url = {abilityUrl}
+                    url = {ability[0]}
+                    name = {ability[1]}
                 />
                 ))
             }

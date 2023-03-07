@@ -3,39 +3,44 @@ import axios from 'axios'
 
 
 
-const Ability = ({ url }) => {
+const Ability = ({ url, name }) => {
 
    
     
     const [abilityInfo, setAbilityInfo] = React.useState()
     const [loading, setLoading] = React.useState(true)
 
-    React.useEffect(() => {
+    /* Too many requests */
 
-        if (!url) return;
+    // React.useEffect(() => {
+    //     console.log("1")
+    //     if (!url) return;
 
-        //setLoading(true)
+    //     console.log("2")
+    //     //setLoading(true)
     
-        let cancel
-        axios.get(url, {
-            cancelToken: new axios.CancelToken(c => cancel = c)
-        }).then(res => {
-            //setLoading(false)
+    //     let cancel
+    //     axios.get(url, {
+    //         cancelToken: new axios.CancelToken(c => cancel = c)
+    //     }).then(res => {
+    //         //setLoading(false)
             
-           setAbilityInfo(res.data.name)
-            console.log({name:res.data.name})
-        })
+    //        //setAbilityInfo(res.data.name)
+    //         //console.log(res.data.name)
+    //     }).catch((error) => {
+    //         console.log("error")
+    //     })
     
-        return () => cancel()
+    //     return () => cancel()
         
-    }, [url])
+    // }, [url])
 
     return (
         <>
-            { abilityInfo &&
+            { name &&
             <div className='abilities-background-ui'>
                 {
-                    abilityInfo ? abilityInfo : "None"
+                    name ? name : "None"
                 }
             </div>
             }
