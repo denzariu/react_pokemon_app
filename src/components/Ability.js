@@ -10,6 +10,10 @@ const Ability = ({ url, name }) => {
     const [abilityInfo, setAbilityInfo] = React.useState()
     const [loading, setLoading] = React.useState(true)
 
+function getAbility () {
+    console.log("press")
+}
+
     /* Too many requests */
 
     // React.useEffect(() => {
@@ -38,11 +42,11 @@ const Ability = ({ url, name }) => {
     return (
         <>
             { name &&
-            <div className='abilities-background-ui'>
+            <button onClick={() => getAbility(url)} className='abilities-background-ui'>
                 {
                     name ? name : "None"
                 }
-            </div>
+            </button>
             }
         </>
     );
