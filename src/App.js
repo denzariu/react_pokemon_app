@@ -4,6 +4,7 @@ import Home from "./routes/Home"
 import About from './routes/About'
 import Abilities from './routes/Abilities'
 import "./styles/styles.css"
+import Ability from './components/Ability'
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/about" element={<About/>}/>
                 <Route path="/abilities" element={<Abilities/>}/>
+                <Route path="/abilities/:ability_name" element={<Ability/>}/>
            </Routes>
         </HashRouter>
     );

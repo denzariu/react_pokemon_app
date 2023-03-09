@@ -40,10 +40,28 @@ function gotoPrevPage() {
     setCurrentPageUrl(prevPageUrl)
 }
 
+function selectAbility(ability) {
+    navigate('/abilities/' + ability)
+}
+
 /* TODO: segment in 50 abilities OR show them in small displays */
 
   return (
     <>
+
+        <div id='abilities-container'>
+            {
+                abilities && abilities.map( ability => (
+                    
+                <button onClick={() => selectAbility(ability[1])} className='abilities-background-ui'>
+                {
+                    ability[1] ? ability[1].replace("-", " ").replace(/\b\w/g, x => x.toUpperCase()) : "None"
+                }
+                </button>
+                ))
+            }
+        </div>
+        
         <div className="blue-squares-container-ui">
             <button className="blue-square-ui" onClick={() => navigate('/')}>
                 Pokedex
@@ -54,16 +72,7 @@ function gotoPrevPage() {
             />
         </div>
 
-        <div id='abilities-container'>
-            {
-                abilities && abilities.map( ability => (
-                <Ability key={v4()}
-                    url = {ability[0]}
-                    name = {ability[1]}
-                />
-                ))
-            }
-        </div>
+        
         
     </>
   )

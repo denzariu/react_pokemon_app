@@ -349,6 +349,8 @@
     transform: scale(var(--scale_factor));
     
   }
+
+  
   
   @media only screen and (max-width: 600px) {
     #pokedex-container {
@@ -360,9 +362,24 @@
       transform: scale(1);
     }
     
+    #abilities-container {
+    margin-top: 10vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr)!important;
+    grid-template-rows: repeat(25, 1fr)!important;
+
+    justify-content: center;
+    align-items: center;
+    width: calc(200px * var(--scale_factor))!important;
+    gap: 1px;
+  }
+
+    .abilities-background-ui {
+      height: calc(10px * var(--scale_factor));
+      width: calc(30px * 2 * var(--scale_factor));
+    }
+
     .blue-squares-container-ui {
-      width: 70vw;
-      transform: scale(1);
       flex-wrap: wrap;
     }
 
@@ -405,9 +422,14 @@
     }
     
     .blue-squares-container-ui {
-        width: 70vw;
+        
         transform: scale(0.8);
         flex-wrap: wrap;
+    }
+
+    .ability-ui {
+      height: calc(250px * var(--scale_factor))!important;
+      width: calc(250px * var(--scale_factor))!important;
     }
 
     .evolution-screen {
@@ -881,6 +903,8 @@
   }
 
   .blue-squares-container-ui {
+    position: fixed;
+    bottom:10%;
     width: auto;
     height: auto;
     display: flex;
@@ -888,6 +912,8 @@
   }
 
   .blue-square-ui {
+
+    mmargin-top: 2vh;
     flex: 1;
     width: 175px;
     padding: 18px 8px;
@@ -1221,8 +1247,7 @@
   /* Abilities CSS */
 
   #abilities-container {
-    ddisplay: flex;
-    fflex-direction: row;
+    margin-top: 10vh;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(10, 1fr);
@@ -1230,14 +1255,13 @@
     justify-content: center;
     align-items: center;
     height: calc(342px * var(--scale_factor));
-    width: calc(31px * 5 * 2 * var(--scale_factor));
+    width: calc(305px * var(--scale_factor));
     gap: 1px;
   }
 
   .abilities-background-ui {
     flex: 0 0;
     display: flex;
-    wwidth: 150px;
     align-self: center;
     justify-content: center;
     justify-self: center;
@@ -1246,10 +1270,10 @@
     width: calc(30px * 2 * var(--scale_factor));
     padding: 32px 8px;
     border-radius: 12px;
-    border: #d5bdaf 3px solid;
-    background-color: #edede9;
-    box-shadow: inset -3px -5px #d6ccc2;
-    color: #ab7a5e;
+    border: rgb(66, 0, 0) 3px solid;
+    background-color: #fe0065;
+    box-shadow: inset -3px -5px #a50042;
+    color: #fbfbf9;
     font-weight: 500;
     font-family: FontDraxel;
     overflow-wrap: normal;
@@ -1257,7 +1281,29 @@
   }
 
   .abilities-background-ui:active {
-    background-color: #d6ccc2!important;
+    background-color: #a50042!important;
+  }
+
+  .ability-ui {
+    flex: 0 0;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    margin-top: 10vh;
+    height: calc(250px * var(--scale_factor));
+    width: calc(500px * var(--scale_factor));
+    padding: 32px 8px;
+    border-radius: 12px;
+    border: rgb(66, 0, 0) 3px solid;
+    background-color: #fe0065;
+    box-shadow: inset -3px -5px #a50042;
+    color: #fbfbf9;
+    font-weight: 500;
+    font-family: FontDraxel;
+    overflow-wrap: normal;
+    font-size: 18px;
   }
 
   
