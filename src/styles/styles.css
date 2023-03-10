@@ -366,7 +366,7 @@
     }
     
     #abilities-container {
-    margin-top: 10vh;
+    margin-top: 5vh!important;
     display: grid;
     grid-template-columns: repeat(3, 1fr)!important;
     grid-template-rows: repeat(25, 1fr)!important;
@@ -383,8 +383,19 @@
     }
 
     .blue-squares-container-ui {
-        left: 10%;
-        width: 80vw;
+        left: 5%;
+        width: 90vw;
+    }
+
+    .blue-square-ui {
+      width: 100px!important;
+      font-size: 21px!important;
+    }
+
+    .ability-ui {
+      
+      height: calc(230px * var(--scale_factor))!important;
+      width: calc(170px * var(--scale_factor))!important;
     }
 
     #right-panel::before {
@@ -426,8 +437,8 @@
     }
     
     .blue-squares-container-ui {
-        left: 10%;
-        width: 80vw;
+        left: 10%!important;
+        width: 80vw!important;
     }
 
     .ability-ui {
@@ -907,7 +918,7 @@
 
   .blue-squares-container-ui {
     position: fixed;
-    bottom: 10%;
+    bottom: 5%;
     lleft: max(10%, --left-space); 
     height: auto;
     display: flex;
@@ -919,8 +930,8 @@
   }
 @media screen and (min-width: 1000px) {
   .blue-squares-container-ui {
-    left: var(--left-space)!important;
-    width: var(--max-width-buttons)!important;
+    lleft: var(--left-space)!important;
+    wwidth: var(--max-width-buttons)!important;
   }
 }
   .blue-square-ui {
@@ -1304,7 +1315,7 @@
     align-items: center;
     margin-top: 10vh;
     height: calc(250px * var(--scale_factor));
-    width: calc(500px * var(--scale_factor));
+    width: calc(450px * var(--scale_factor));
     padding: 32px 8px;
     border-radius: 12px;
     border: rgb(66, 0, 0) 3px solid;
