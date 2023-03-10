@@ -70,14 +70,6 @@ function selectAbility(ability) {
             gotoNextPage={nextPageUrl ? gotoNextPage : null}
             gotoPrevPage={prevPageUrl ? gotoPrevPage : null}
             />
-
-            {/* 
-                TODO: add state save -> when you go back to pokedex continue
-                from where you left off using local storage
-                
-                LOCALSTORAGE.SETITEM ? LOCALSTORAGE.GETITEM : none 
-                
-             */}
         </div>
         </div>
 
