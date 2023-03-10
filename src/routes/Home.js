@@ -18,12 +18,15 @@ export default function Home() {
   const [pokemonDetails, setPokemonDetails] = React.useState([ ])
 
   React.useEffect(() => {
-
+    let local_pokemonID = localStorage.getItem("id")
+    if (local_pokemonID) setPokemonID(local_pokemonID)
 }, [])
    
   React.useEffect(() => {
     setLoading(true)
+    
     const newPokemon = "https://pokeapi.co/api/v2/pokemon/" + pokemonID
+    localStorage.setItem("id", pokemonID)
 
     let cancel
     axios.get(newPokemon, {
@@ -75,6 +78,10 @@ export default function Home() {
     setPokemonID(newPokemonID)
   };
 
+  const handleRedirect = () => {
+    navigate('/abilities')
+  };
+
   return (
     <>
       <div className="home-container">
@@ -104,7 +111,7 @@ export default function Home() {
                 <button className="blue-square-ui" onClick={handleArtwork}>
                         Artwork Change
                 </button>
-                <button className="blue-square-ui flex-max" onClick={() => navigate('/abilities')}>
+                <button className="blue-square-ui flex-max" onClick={handleRedirect}>
                         Browse Abilities
                 </button>
         </div>
