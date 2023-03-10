@@ -61,7 +61,7 @@ function selectAbility(ability) {
                 ))
             }
         </div>
-        
+        <div className='home-container'>
         <div className="blue-squares-container-ui">
             <button className="blue-square-ui" onClick={() => navigate('/')}>
                 Pokedex
@@ -70,6 +70,7 @@ function selectAbility(ability) {
             gotoNextPage={nextPageUrl ? gotoNextPage : null}
             gotoPrevPage={prevPageUrl ? gotoPrevPage : null}
             />
+        </div>
         </div>
 
         

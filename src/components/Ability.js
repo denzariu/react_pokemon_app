@@ -41,10 +41,12 @@ const Ability = () => {
                     ability_name ? ability_name.replace("-", " ").replace(/\b\w/g, x => x.toUpperCase()) : "None"
                 }
             </div>
-            <div className="blue-squares-container-ui">
-                <button className="blue-square-ui" onClick={() => navigate('/abilities')}>
-                    Abilities
-                </button>
+            <div className="home-container">
+                <div className="blue-squares-container-ui">
+                    <button className="blue-square-ui" onClick={() => navigate('/abilities')}>
+                        Abilities
+                    </button>
+                </div>
             </div>
             
         </>

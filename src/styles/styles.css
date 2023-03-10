@@ -20,6 +20,9 @@
     --dim_actual: ;
     --calc_scale: 2;
     --scale_factor: calc(2);
+
+    --max-width-buttons: 900px;
+    --left-space: calc(50%-950px);
 }  
 
 /* Prevents text selection on elements aka "no text bar thing when selecting elements" */
@@ -380,7 +383,8 @@
     }
 
     .blue-squares-container-ui {
-      flex-wrap: wrap;
+        left: 10%;
+        width: 80vw;
     }
 
     #right-panel::before {
@@ -422,9 +426,8 @@
     }
     
     .blue-squares-container-ui {
-        
-        transform: scale(0.8);
-        flex-wrap: wrap;
+        left: 10%;
+        width: 80vw;
     }
 
     .ability-ui {
@@ -904,18 +907,26 @@
 
   .blue-squares-container-ui {
     position: fixed;
-    bottom:10%;
-    width: auto;
+    bottom: 10%;
+    lleft: max(10%, --left-space); 
     height: auto;
     display: flex;
-    gap: 40px;
-  }
+    flex-wrap: wrap;
+    width: min(80vw, --max-width-buttons);
+    gap: 15px;
 
+    justify-content: center;
+  }
+@media screen and (min-width: 1000px) {
+  .blue-squares-container-ui {
+    left: var(--left-space)!important;
+    width: var(--max-width-buttons)!important;
+  }
+}
   .blue-square-ui {
 
-    mmargin-top: 2vh;
     flex: 1;
-    width: 175px;
+    width: 165px;
     padding: 18px 8px;
     border-radius: 12px;
     border: black 3px solid;
