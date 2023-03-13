@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react_pokemon_app/static/css/main.81b2ed1b.css",
+    "main.css": "/react_pokemon_app/static/css/main.0268b020.css",
     "main.js": "/react_pokemon_app/static/js/main.0730887f.js",
     "static/media/F25_Bank_Printer.ttf": "/react_pokemon_app/static/media/F25_Bank_Printer.677d60811cafdf3f041b.ttf",
     "static/media/Draxel.ttf": "/react_pokemon_app/static/media/Draxel.8800299c56fc08de8259.ttf",
     "index.html": "/react_pokemon_app/index.html",
-    "main.81b2ed1b.css.map": "/react_pokemon_app/static/css/main.81b2ed1b.css.map",
+    "main.0268b020.css.map": "/react_pokemon_app/static/css/main.0268b020.css.map",
     "main.0730887f.js.map": "/react_pokemon_app/static/js/main.0730887f.js.map"
   },
   "entrypoints": [
-    "static/css/main.81b2ed1b.css",
+    "static/css/main.0268b020.css",
     "static/js/main.0730887f.js"
   ]
 }
