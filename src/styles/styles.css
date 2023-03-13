@@ -395,7 +395,6 @@
     }
 
     .ability-ui {
-      
       height: calc(230px * var(--scale_factor))!important;
       width: calc(170px * var(--scale_factor))!important;
     }
@@ -406,7 +405,17 @@
     
     .evolution-container-container {
         padding-left: 5px;
+        transform: translate(-129px, 115px) scale(1.8)!important;
     }
+
+    .bottom-screens-container-column {
+      transform: translateX(75px) scale(1.4)!important;
+    }
+
+    .evolutions-title {
+      color: #20020e!important;
+    }
+
     .evolution-name-container {
         width: 95%!important;
     }
