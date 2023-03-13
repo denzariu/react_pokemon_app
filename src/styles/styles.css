@@ -212,8 +212,6 @@
   }
 
   body {
-    height: 100vh;
-    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -353,9 +351,7 @@
     
   }
 
-  
-  
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 490px) {
     #pokedex-container {
         height: calc(342px * 1);
         width: calc(228px * 2 * 1);
@@ -363,6 +359,12 @@
     #pokedex {
       width: 90%;
       transform: scale(1);
+    }
+
+    body {
+      position: fixed;
+      width: 70%!important;
+      left: 15%!important;
     }
     
     #abilities-container {
@@ -385,6 +387,77 @@
     .blue-squares-container-ui {
         left: 5%;
         width: 90vw;
+    }
+
+    .blue-square-ui {
+      width: 100px!important;
+      font-size: 21px!important;
+    }
+
+    .ability-ui {
+      
+      height: calc(230px * var(--scale_factor))!important;
+      width: calc(170px * var(--scale_factor))!important;
+    }
+
+    #right-panel::before {
+        width: 0%!important;
+    }
+    
+    .evolution-container-container {
+        padding-left: 5px;
+    }
+    .evolution-name-container {
+        width: 95%!important;
+    }
+
+    
+    .evolution-container {
+        width: 95%!important;
+        height: 77%!important;
+    }
+    .evolution-screen {
+        width: 80%!important;
+        height: 90%!important;
+    }   
+    .arrow {
+        margin-left: 19px!important;
+    }
+    .arrow-down {
+        margin-left: 19px!important;
+    }
+}
+  
+  @media only screen and (max-width: 600px) {
+    #pokedex-container {
+        height: calc(342px * 1)!important;
+        width: calc(228px * 2 * 1)!important;
+      }
+    #pokedex {
+      width: 90%!important;
+      transform: scale(0.9)!important;
+    }
+    
+    #abilities-container {
+    margin-top: 5vh!important;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr)!important;
+    grid-template-rows: repeat(25, 1fr)!important;
+
+    justify-content: center;
+    align-items: center;
+    width: calc(200px * var(--scale_factor))!important;
+    gap: 1px;
+  }
+
+    .abilities-background-ui {
+      height: calc(10px * var(--scale_factor));
+      width: calc(30px * 2 * var(--scale_factor));
+    }
+
+    .blue-squares-container-ui {
+        left: 5%!important;
+        width: 90vw!important;
     }
 
     .blue-square-ui {
