@@ -39,7 +39,7 @@ export default function Home() {
                     height: res.data.height,
                     weight: res.data.weight,
                     types: [res.data.types],
-                    stats: res.data.stats,
+                    stats: res.data.stats
                 }
         
         obj = {...obj, url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemonID + fileExtension,

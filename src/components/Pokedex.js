@@ -190,7 +190,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
             <div className="bottom-screens-container-column">
                 <PokemonType pokemonTypes={pokemonDetails.types}/>
             </div>
-            <div className="evolution-container-container">
+            <div className="evolution-container-container evolution-screen-mobile">
                 <PokemonEvolutions
                     pokemonId={pokemonDetails.id}
                 />
