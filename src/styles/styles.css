@@ -1001,12 +1001,14 @@
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, 1fr);
   }
+
   .blue-square {
     border-radius: 2px;
     border: black 1.5px solid;
     background-color: var(--square-buttons-color);
     box-shadow: inset -2px -2px #3298cb;
   }
+  
   .blue-square:hover {
     background-color: #3298cb!important;
   } 
