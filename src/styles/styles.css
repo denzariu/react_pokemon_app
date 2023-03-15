@@ -9,6 +9,8 @@
 }
 
 :root {
+    color-scheme: only light;
+    
     --main-bg-color: #fe0065;
     --secondary-bg-color: #f2f2f2;
     --main-screen-bg-color: #98cb98;
@@ -427,7 +429,6 @@
     .evolution-name-container {
         width: 95%!important;
     }
-
     
     .evolution-container {
         width: 95%!important;
