@@ -663,7 +663,7 @@
 
   .info-height-weight {
     font-family: fontDraxel;
-    width: 46px;
+    width: 50px;
     height: 7px;
     background-color: rgb(245, 245, 235);
     border: solid black 2px;
@@ -679,10 +679,10 @@
   
   
   .height-transform {
-    transform: translateX(-27px) translateY(-45px);
+    transform: translateX(-25px) translateY(-45px);
   }
   .weight-transform {
-    transform: translateX(-29px) translateY(-45px);
+    transform: translateX(-27px) translateY(-45px);
   }
   /* Center Screen */
   
@@ -976,6 +976,7 @@
     background-color: rgb(245, 245, 235);
     border: solid black 2px;
     border-radius: 8px;
+    border-top-left-radius: 0px;
     font-size: 9px;
     font-weight: 500;
     padding: 0px 12px 0px;
