@@ -63,8 +63,12 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
             </div>
             {/* <div id="main-screen"></div> */}
             <div className="bottom-screen-lights prevent-select">
-              <div className={"small-light red " + (shiny ? "shiny" : "")} onClick={handleShinyChange}>
-                {!shiny && <div className="dot light-red"></div>}
+              <div className={"small-light-shiny red " + (shiny ? "shiny" : "")} onClick={handleShinyChange}>
+                {!shiny && 
+                  <div>
+                    <div className="dot-glow"></div>
+                    <div className="small-dot light-red"></div>
+                  </div>}
               </div>
               
               <div id="id-screen">{pokemonDetails.id}</div>

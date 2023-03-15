@@ -9,7 +9,7 @@
 }
 
 :root {
-    color-scheme: only light;
+    color-scheme: only light!important;
     
     --main-bg-color: #fe0065;
     --secondary-bg-color: #f2f2f2;
@@ -626,6 +626,14 @@
     border-radius: 50%;
   }
 
+  .small-light-shiny {
+    border: solid black;
+    border-width: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+  }
+
   .shiny {
     background-color: #fdd81d!important;
   }
@@ -642,8 +650,50 @@
     border-radius: 50%;
   }
 
+  .small-dot {
+    height: 5px;
+    width: 5px;
+    position: relative;
+    bottom: 4px;
+    left: 3px;
+    border-radius: 50%;
+  }
+
+  .dot-glow {
+    height: 7px;
+    width: 7px;
+    position: relative;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 0, 0.593);
+    animation: fade-color 7s infinite;
+  }
+
   .small-light:hover {
     background-color: rgb(218, 1, 1);
+  }
+
+  .small-light-shiny:hover {
+    background-color: rgb(218, 1, 1);
+  }
+
+  @keyframes fade-color {
+    0% {
+      background-color: red;
+      width: 7px!important;
+      height: 7px!important;
+    }
+    25% {
+      background-color: rgba(255, 221, 0, 0.77);
+      width: 8px!important;
+      height: 8px!important;
+    }
+    100% {
+      background-color: red;
+      width: 7px!important;
+      height: 7px!important;
+    }
   }
 
   #id-screen {
