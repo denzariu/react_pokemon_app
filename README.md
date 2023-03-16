@@ -1,4 +1,6 @@
-### Project: Making a nice Pokedex UI in React using PokeAPI
+<img src="https://forthebadge.com/images/badges/made-with-javascript.svg">
+
+## Pokedex UI in React using PokeAPI
 
 ### Preview Website: [Interactive Preview](https://denzariu.github.io/react_pokemon_app/)
 
