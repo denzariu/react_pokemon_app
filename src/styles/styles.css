@@ -1301,7 +1301,7 @@
     justify-content: center;
     align-items: center;
 
-    border: solid rgba(0, 0, 0, 0.250);
+    border: solid rgba(0, 0, 0, 0.150);
     border-width: 3px 3px 3px 3px;
     padding: 0px 16px 0px 17px;
   }
