@@ -212,7 +212,7 @@ function handlePrevEvolution (j) {
            <div key={ v4() } className="evolution-screen"> 
                 <div className="inline-no-height">
                     { currentPokemons[0] > 0 && 
-                        <div className="arrow arrow-up" type="button" onClick={() => {handlePrevEvolution(0)}}></div>
+                        <div className="line-arrow line-arrow-up" type="button" onClick={() => {handlePrevEvolution(0)}}></div>
                     }
                 </div> 
                                 
@@ -227,7 +227,9 @@ function handlePrevEvolution (j) {
             <div key={ v4() } className="evolution-screen"> 
                 <div className="inline-no-height">
                     { currentPokemons[1] > 0 && 
-                        <div className="arrow arrow-up" type="button" onClick={() => {handlePrevEvolution(1)}}></div>
+                        <div className="line-arrow line-arrow-up" type="button" onClick={() => {handlePrevEvolution(1)}}>
+                            <div className="arrow arrow-up"></div>
+                        </div>
                     }
                 </div> 
                             
@@ -240,14 +242,18 @@ function handlePrevEvolution (j) {
                     
                 <div className="inline-no-height">
                     { currentPokemonsData[1].num_evolutions - 1 > currentPokemons[1] &&
-                        <div className="arrow arrow-down" type="button" onClick={() => {handleNextEvolution(1)}}></div>
+                        <div className="line-arrow line-arrow-down" type="button" onClick={() => {handleNextEvolution(1)}}>
+                            <div className="arrow arrow-down"></div>
+                        </div>
                     }
                 </div>
             </div>
             <div key={ v4() } className="evolution-screen"> 
                 <div className="inline-no-height">
                     { currentPokemons[2] > 0 && 
-                        <div className="arrow arrow-up" type="button" onClick={() => {handlePrevEvolution(2)}}></div>
+                        <div className="line-arrow line-arrow-up" type="button" onClick={() => {handlePrevEvolution(2)}}>
+                            <div className="arrow arrow-up"></div>
+                        </div>
                     }
                 </div> 
                             
@@ -260,7 +266,9 @@ function handlePrevEvolution (j) {
                     
                 <div className="inline-no-height">
                     { currentPokemonsData[2].num_evolutions - 1 > currentPokemons[2] && 
-                        <div className="arrow arrow-down" type="button" onClick={() => {handleNextEvolution(2)}}></div>
+                        <div className="line-arrow line-arrow-down" type="button" onClick={() => {handleNextEvolution(2)}}>
+                            <div className="arrow arrow-down"></div>
+                        </div>
                     }
                 </div>
             </div>
