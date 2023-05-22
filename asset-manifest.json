@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react_pokemon_app/static/css/main.ebe1bc6c.css",
-    "main.js": "/react_pokemon_app/static/js/main.46c1d9f1.js",
+    "main.css": "/react_pokemon_app/static/css/main.1d5bd4f3.css",
+    "main.js": "/react_pokemon_app/static/js/main.6a3774dc.js",
     "static/media/F25_Bank_Printer.ttf": "/react_pokemon_app/static/media/F25_Bank_Printer.677d60811cafdf3f041b.ttf",
     "static/media/Draxel.ttf": "/react_pokemon_app/static/media/Draxel.8800299c56fc08de8259.ttf",
     "index.html": "/react_pokemon_app/index.html",
-    "main.ebe1bc6c.css.map": "/react_pokemon_app/static/css/main.ebe1bc6c.css.map",
-    "main.46c1d9f1.js.map": "/react_pokemon_app/static/js/main.46c1d9f1.js.map"
+    "main.1d5bd4f3.css.map": "/react_pokemon_app/static/css/main.1d5bd4f3.css.map",
+    "main.6a3774dc.js.map": "/react_pokemon_app/static/js/main.6a3774dc.js.map"
   },
   "entrypoints": [
-    "static/css/main.ebe1bc6c.css",
-    "static/js/main.46c1d9f1.js"
+    "static/css/main.1d5bd4f3.css",
+    "static/js/main.6a3774dc.js"
   ]
 }
