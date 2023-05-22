@@ -139,7 +139,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
         <div className="top-screen-container">
           <div className="inline-no-height">
                   <div className="info-height-weight height-transform">{"Height: " + pokemonDetails.height/10 + "m"}</div>
-                  <div className="info-height-weight weight-transform">{"Weight: " + pokemonDetails.weight/10 + "kg"}</div>
+                  <div className="info-height-weight weight-transform">{"Weight: " + ((pokemonDetails.weight/10) >= 100? (pokemonDetails.weight/10).toFixed(0):(pokemonDetails.weight/10)) + "kg"}</div>
           </div>
           <div id="about-screen" className="right-panel-screen">
             {pokemonDetails.stats && (pokemonDetails.stats.map(stat =>  
