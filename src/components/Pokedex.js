@@ -127,7 +127,7 @@ export default function Pokedex({ pokemonDetails, loading, artwork }) {
           <svg height="100%" width="100%">
             <polyline
               points="0,0 0,40 138,40 158,75 250,75 250,0 0,0"
-              style = {{fill: "#f2f2f2", stroke: "none", strokeWidth: 3}}
+              style = {{fill: "#ffcce0", stroke: "none", strokeWidth: 3}}
             />
             <polyline
               points="0,40 138,40 158,75 250,75"
