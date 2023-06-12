@@ -438,7 +438,9 @@
         width: 80%!important;
         height: 90%!important;
     }   
-    
+    .line-arrow {
+        padding: 0px 19px 0px 19px!important;
+    }
 }
   
   @media only screen and (max-width: 600px) {
@@ -507,7 +509,9 @@
         width: 80%!important;
         height: 90%!important;
     }   
-    
+    .line-arrow {
+        padding: 0px 19px 0px 19px!important;
+    }
 }
 
   
@@ -534,7 +538,7 @@
         width: 80%!important;
         height: 90%!important;
     }  
-
+    
     
   }
 
@@ -1334,9 +1338,9 @@
     justify-content: center;
     align-items: center;
 
-    border: solid rgba(0, 0, 0, 0.150);
-    border-width: 3px 3px 3px 3px;
-    padding: 0px 16px 0px 17px;
+    border: solid rgba(255, 255, 255, 0.3);
+    border-width: 1.6px 3px 3px 3px;
+    padding: 0px 20px 0px 20px;
   }
 
   .line-arrow-down {
@@ -1345,25 +1349,33 @@
   }
 
   .line-arrow-up {
-    transform: translateY(-2px) rotate(0deg);
-    -webkit-transform: translateY(-2px) rotate(0deg);
+    transform: translateY(1.2px) rotate(0deg);
+    -webkit-transform: translateY(1.2px) rotate(0deg);
   }
 
-  .arrow {
-    flex: 1 1;
-    mmargin-left: 20px;
+  .underarrow {
+    position: absolute;
     margin-bottom: 0px;
     margin-top: 0px;
     
+    border: solid var(--main-bg-color);
+    border-width: 0 2px 2px 0;
+    padding: 0px 2px 2px 0px;
+  }
+
+  .arrow {
+    position: absolute;
+    margin-bottom: 0px;
+    margin-top: 0px;
     
-    border: solid #ff4c61;
-    border-width: 0 3px 3px 0;
-    padding: 0px 3px 3px 0px;
+    border: solid;
+    border-width: 0 2px 2px 0;
+    padding: 0px 4px 4px 0px;
   }
 
   .arrow-down {
-    transform: translateY(-1px) rotate(45deg);
-    -webkit-transform: translateY(-1px) rotate(45deg);
+    transform: translateY(1px) rotate(45deg);
+    -webkit-transform: translateY(1px) rotate(45deg);
   }
 
   .arrow-down:hover {
