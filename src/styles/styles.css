@@ -467,15 +467,15 @@
     }
     
     #abilities-container {
-    margin-top: 5vh!important;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr)!important;
-    grid-template-rows: repeat(25, 1fr)!important;
-    justify-content: center;
-    align-items: center;
-    width: calc(200px * var(--scale_factor))!important;
-    gap: 1px;
-  }
+      margin-top: 5vh!important;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr)!important;
+      grid-template-rows: repeat(9, 1fr)!important;
+      justify-content: center;
+      align-items: center;
+      width: calc(190px * var(--scale_factor))!important;
+      gap: 1px;
+    }
 
     .abilities-background-ui {
       height: calc(10px * var(--scale_factor));
@@ -486,11 +486,11 @@
         position: fixed;
         bottom: 0%;
         height: auto;
-        width: 93vw;
+        width: 94vw;
         margin: 0vw 5vw;
         display: inline-flex;
         wwidth: min(80vw, --max-width-buttons);
-        gap: 0vw;
+        gap: 1vw;
         padding: 10px 20px 4px 20px;
         justify-content: center;
         border: rgba(0, 0, 0, 0.5) 5px solid;
@@ -503,18 +503,18 @@
       }
     
     .blue-square-ui-smallres {
-        padding: 8px 17px;
+        padding: 8px 16px;
         background-color: var(--main-bg-color);
         border: 0px;
     }
     .blue-square-ui-smallres:active {
-        padding: 8px 17px;
+        padding: 8px 16px;
         background-color: var(--main-bg-color-darker);
         border-radius: 12px;
         border: 0px;
     }
     .blue-square-ui-smallres:disabled {
-        padding: 8px 17px;
+        padding: 8px 16px;
         background-color: var(--main-bg-color);
         border: 0px;
     }
@@ -542,13 +542,13 @@
         color: var(--main-soft-white);
         font-family: fontDraxel;
         font-size: 12px;
-        padding: 8px 0px 0px 0px;
+        padding: 6px 0px 0px 0px;
     }
     .blue-squares-container-ui {
         display: none!important;
     }
     .blue-square-ui {
-        padding: 2px!important;
+        margin: 0px 0px 6px 8px;
     }
     .flex-max {
         flex: 1 1 20!important;
