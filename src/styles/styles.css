@@ -8,10 +8,18 @@
     src: url("/public/F25_Bank_Printer.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "FontAlba";
+    src: url("/public/ALBAS__.TTF") format("truetype");
+}
+
 :root {
     color-scheme: only light!important;
     
     --main-bg-color: #fe0065;
+    --main-bg-color-darker: #a20041;
+    --main-soft-white: #f5f5eb;
+    --main-soft-black: rgb(7, 7, 7);
     --secondary-bg-color: #ffcce0;
     --main-screen-bg-color: #98cb98;
     --secondary-screen-bg-color: #9e9d9d;
@@ -221,6 +229,11 @@
     background-color: var(--secondary-bg-color);
   }
   
+  h1 {
+    font-family: FontAlba;
+    color: var(--main-soft-black);
+  }
+
   .home-container {
     display: flex;
     flex-direction: column;
@@ -256,7 +269,7 @@
     overflow: hidden;
     width: 60px;
     height: 60px;
-    border: 2px solid black;
+    border: 2px solid var(--main-soft-black);
     border-radius: 50%;
     position: relative;
     animation: shake 1.5s ease-in infinite;
@@ -307,10 +320,10 @@
   }
   
   .center-ball {
-    background-color: white;
+    background-color: var(--main-soft-white);
     width: 20%;
     height: 20%;
-    border: 2px solid black;
+    border: 2px solid var(--main-soft-black);
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -319,7 +332,7 @@
   }
   
   .center-line {
-    background: black;
+    background: var(--main-soft-black);
     height: 100%;
     width: 100%;
   }
@@ -330,8 +343,6 @@
     border-radius: 4px;
     margin-right: 10px;
   }
-  
-
 
   /* poke-dex */
   #pokedex-container {
@@ -343,12 +354,10 @@
   }
 
   #pokedex {
-
     height: calc(342px);
     width: calc(228px * 2);
     display: flex;
     border-radius: 10px;
-
     transform: scale(var(--scale_factor));
     
   }
@@ -407,7 +416,9 @@
     
     .evolution-container-container {
         padding-left: 5px;
-        transform: translate(-129px, 106px) scale(1.8)!important;
+        transform: translate(-129px, 130px) scale(2.4)!important;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
 
     .bottom-screens-container-column {
@@ -418,12 +429,12 @@
       background-color: var(--main-bg-color);
       height: 100px;
       width: 50px;
-      border: 2px solid black;
+      border: 2px solid var(--main-soft-black);
       padding-top: 8.3px;
     }
 
     .evolutions-title {
-      color: rgb(245, 245, 235)!important;
+      color: var(--main-soft-white)!important;
     }
 
     .evolution-name-container {
@@ -458,7 +469,6 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr)!important;
     grid-template-rows: repeat(25, 1fr)!important;
-
     justify-content: center;
     align-items: center;
     width: calc(200px * var(--scale_factor))!important;
@@ -470,18 +480,65 @@
       width: calc(30px * 2 * var(--scale_factor));
     }
 
-    .blue-squares-container-ui {
-        left: 5%!important;
-        width: 90vw!important;
+    .blue-squares-container-ui-smallres {
+        position: fixed;
+        bottom: 0%;
+        height: auto;
+        width: 90vw;
+        margin: 0vw 5vw;
+        display: inline-flex;
+        wwidth: min(80vw, --max-width-buttons);
+        gap: 4vw;
+        padding: 8px 15px;
+        justify-content: center;
+        border: rgba(0, 0, 0, 0.5) 5px solid;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        background-color: var(--main-bg-color);
+        overflow-wrap: normal;
+        color: var(--main-soft-white);
+      }
+    
+    .blue-square-ui-smallres {
+        padding: 10px 15px;
+        background-color: var(--main-bg-color);
+        border: 0px;
+    }
+    .blue-square-ui-smallres:active {
+        padding: 10px 15px;
+        background-color: var(--main-bg-color-darker);
+        border-radius: 12px;
+    }
+    .blue-square-ui-smallres:disabled {
+        padding: 10px 15px;
+        background-color: var(--main-bg-color);
+        border: 0px;
     }
 
-    .blue-square-ui {
-      width: 100px!important;
-      font-size: 21px!important;
+    .svg-menu-box {
+        width: 32px;
+        height: 32px;
+        transform: scale(2);
+    }
+    .svg-menu {
+        fill: none;
+        stroke: var(--main-soft-white);
+        stroke-width: 1;
+    }
+    .svg-menu-disabled {
+        fill: none;
+        stroke: var(--main-bg-color);
+        stroke-width: 1;
+    }
+
+    .blue-squares-container-ui {
+        display: none!important;
+    }
+    .flex-max {
+        flex: 1 1 20!important;
     }
 
     .ability-ui {
-      
       height: calc(230px * var(--scale_factor))!important;
       width: calc(170px * var(--scale_factor))!important;
     }
@@ -490,8 +547,6 @@
         width: 0%!important;
     }
 
-    
-
     .evolution-container-container {
         padding-left: 5px;
     }
@@ -499,7 +554,6 @@
     .evolution-name-container {
         width: 95%!important;
     }
-
     
     .evolution-container {
         width: 95%!important;
@@ -515,13 +569,13 @@
 }
 
   
-  @media only screen and (min-width: 600px) and ( max-width: 1200px) {
+  @media only screen and (min-width: 601px) and (max-width: 1200px) {
     #pokedex-container {
-        height: calc(342px * 1);
-        width: calc(228px * 2 * 1);
+        height: calc(342px * 1.3);
+        width: calc(228px * 2 * 1.3);
       }
     #pokedex {
-      transform: scale(1);
+      transform: scale(1.3);
     }
     
     .blue-squares-container-ui {
@@ -539,7 +593,14 @@
         height: 90%!important;
     }  
     
-    
+    .blue-squares-container-ui-smallres {
+        display: none!important;
+    }
+  }
+  @media only screen and (min-width: 1201px) {
+    .blue-squares-container-ui-smallres {
+        display: none!important;
+    }
   }
 
   /* LEFT PANEL */
@@ -550,7 +611,7 @@
     width: 50%;
     display: grid;
     grid-template-rows: 23% 50% 27%;
-    border: solid black 3px;
+    border: solid var(--main-soft-black) 3px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 7px;
@@ -577,7 +638,7 @@
     margin-left: 5px;
     height: 60px;
     width: 60px;
-    border: solid black;
+    border: solid var(--main-soft-black);
     border-radius: 50%;
     background-color: white;
   }
@@ -586,7 +647,7 @@
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    border: solid black;
+    border: solid var(--main-soft-black);
   }
   
   .big-dot {
@@ -609,7 +670,7 @@
   }
   
   .small-light {
-    border: solid black;
+    border: solid var(--main-soft-black);
     width: 16px;
     height: 16px;
     border-radius: 50%;
@@ -617,7 +678,7 @@
   }
 
   .small-light-shiny {
-    border: solid black;
+    border: solid var(--main-soft-black);
     border-width: 2px;
     width: 14px;
     height: 14px;
@@ -731,7 +792,7 @@
     font-family: fontDraxel;
     width: 24px;
     background-color: rgb(245, 245, 235);
-    border: solid black 2px;
+    border: solid var(--main-soft-black) 2px;
     border-radius: 8px;
     font-size: 13px;
     font-weight: 500;
@@ -747,7 +808,7 @@
     width: 50px;
     height: 7px;
     background-color: rgb(245, 245, 235);
-    border: solid black 2px;
+    border: solid var(--main-soft-black) 2px;
     border-radius: 2px;
     font-size: 9px;
     font-weight: 500;
@@ -776,7 +837,7 @@
   .screen {
     width: 150px;
     height: 150px;
-    border: solid black;
+    border: solid var(--main-soft-black);
     border-radius: 0 0 0 17%;
     display: grid;
     grid-template-rows: 10% 70% 18%;
@@ -793,7 +854,7 @@
   }
   
   .mini-light {
-    border: solid black 2px;
+    border: solid var(--main-soft-black) 2px;
     width: 5px;
     height: 5px;
     border-radius: 50%;
@@ -818,7 +879,7 @@
     justify-self: center;
     justify-items: center;
     background-color: var(--main-screen-bg-color);
-    border: solid black 2px;
+    border: solid var(--main-soft-black) 2px;
     border-radius: 5%;
     display: grid;
   }
@@ -835,7 +896,7 @@
   }
   
   .bottom-screen-lights .small-light {
-    border: solid black 2px;
+    border: solid var(--main-soft-black) 2px;
     width: 12px;
     height: 12px;
   }
@@ -850,7 +911,7 @@
   .line {
     width: 18px;
     height: 2px;
-    background-color: black;
+    background-color: var(--main-soft-black);
     margin-top: 2px;
   }
   
@@ -865,7 +926,7 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    border: solid 3px black;
+    border: solid 3px var(--main-soft-black);
     background-color: var(--main-buttons-color);
     margin-left: 7px;
   }
@@ -874,14 +935,14 @@
     width: 35px;
     height: 4px;
     border-radius: 50px;
-    border: 2px solid black;
+    border: 2px solid var(--main-soft-black);
   }
   
   #name-screen {
     width: 100%;
-    padding-top: 3px; /* The font isn't centered :( */
+    padding-top: 3px;
     font-family: fontDraxel;
-    color: black;
+    color: var(--main-soft-black);
     font-weight: 300;
     text-align: center;
     font-size: 14px;
@@ -890,7 +951,7 @@
     width: 80px;
     height: 36px;
     border-radius: 9px;
-    border: solid black 2px;
+    border: solid var(--main-soft-black) 2px;
     background-color: rgb(245, 245, 235);
     display: flex;
     justify-content: center;
@@ -901,7 +962,7 @@
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 1px solid var(--main-soft-black);
   }
   
   .upper-buttons-container {
@@ -955,7 +1016,7 @@
     border-radius: 5px;
     height: 12px;
     width: 52px;
-    border: 2px solid black;
+    border: 2px solid var(--main-soft-black);
   }
   
   .nav-button-horizontal {
@@ -964,14 +1025,14 @@
     border-radius: 5px;
     height: 12px;
     width: 52px;
-    border: 2px solid black;
+    border: 2px solid var(--main-soft-black);
   }
   
   .nav-center-circle {
     height: 5px;
     width: 5px;
     border-radius: 50%;
-    border: solid black 2px;
+    border: solid var(--main-soft-black) 2px;
     z-index: +2;
   }
   
@@ -1003,7 +1064,7 @@
   }
   
   .bottom-right-nav-container .small-light {
-    border: solid black 2px;
+    border: solid var(--main-soft-black) 2px;
     width: 7px;
     height: 7px;
     margin-right: 3px;
@@ -1027,7 +1088,7 @@
     width: 50%;
     display: grid;
     grid-template-rows: 24% repeat(4, 19%);
-    border-bottom: solid black 4px;
+    border-bottom: solid var(--main-soft-black) 4px;
     border-bottom-right-radius: 10px;
   }
 
@@ -1038,7 +1099,7 @@
     bottom: 0;
     width: 10%;
     height: 265px;
-    border-right: solid black 4px;
+    border-right: solid var(--main-soft-black) 4px;
     border-bottom-right-radius: 6px;
     border-top-right-radius: 4px;
   }
@@ -1053,9 +1114,9 @@
     font-family: FontF25;
     width: 146px;
     height: 64px;
-    color: black;
+    color: var(--main-soft-black);
     background-color: rgb(245, 245, 235);
-    border: solid black 2px;
+    border: solid var(--main-soft-black) 2px;
     border-radius: 8px;
     border-top-left-radius: 0px;
     font-size: 9px;
@@ -1086,7 +1147,7 @@
 
   .blue-square {
     border-radius: 2px;
-    border: black 1.5px solid;
+    border: var(--main-soft-black) 1.5px solid;
     background-color: var(--square-buttons-color);
     box-shadow: inset -2px -2px #3298cb;
   }
@@ -1114,13 +1175,12 @@
   }
 }
   .blue-square-ui {
-
     flex: 1;
     width: 165px;
     padding: 18px 8px;
     border-radius: 12px;
-    border: black 3px solid;
-    background-color: #fe0065;
+    border: var(--main-soft-black) 3px solid;
+    background-color: var(--main-bg-color);
     box-shadow: inset -3px -5px #a20041;
     font-weight: 500;
     font-family: FontDraxel;
@@ -1154,7 +1214,7 @@
   }
 
   .small-reds-container .small-light {
-    border: solid black 2px;
+    border: solid var(--main-soft-black) 2px;
     width: 7px;
     height: 7px;
     margin-right: 10px;
@@ -1177,7 +1237,7 @@
     width: 25px;
     height: 25px;
     border-radius: 5px;
-    border: black 2px solid;
+    border: var(--main-soft-black) 2px solid;
     background-color: #ffffff;
     box-shadow: inset -2px -2px gray;
   }
@@ -1199,7 +1259,7 @@
   .thin-button {
     width: 35px;
     height: 2px;
-    border: 2px solid black;
+    border: 2px solid var(--main-soft-black);
     background-color: var(--main-buttons-color);
   }
   .yellow-button {
@@ -1207,7 +1267,7 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    border: solid 2px black;
+    border: solid 2px var(--main-soft-black);
     margin-left: 7px;
   }
   
@@ -1300,12 +1360,12 @@
     width: 45px;
     height: 7px;
     background-color: rgb(245, 245, 235);
-    border: solid black 2px;
+    border: solid var(--main-soft-black) 2px;
     border-radius: 5%;
     transform: translateY(3px);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    color: black;
+    color: var(--main-soft-black);
     font-size: 7px;
     font-family: FontDraxel;
     padding-top: 1px;
@@ -1318,7 +1378,7 @@
     justify-self: center;
     justify-items: center;
     background-color: var(--main-screen-bg-color);
-    border: solid black 2px;
+    border: solid var(--main-soft-black) 2px;
     border-radius: 5%;
     display: flex;
     flex-direction: column;
@@ -1505,8 +1565,8 @@
     padding: 32px 8px;
     border-radius: 12px;
     border: rgb(66, 0, 0) 3px solid;
-    background-color: #fe0065;
-    box-shadow: inset -3px -5px #a50042;
+    background-color: var(--main-bg-color);
+    box-shadow: inset -3px -5px var(--main-bg-color-darker);
     color: #fbfbf9;
     font-weight: 500;
     font-family: FontDraxel;
