@@ -92,7 +92,6 @@ export default function Home() {
             loading={loading}
             artwork={artwork}
         />
-        <h1 className="text-ui"> </h1>
         <div className="blue-squares-container-ui">
             {pokemonID > 1 &&
                 <button className="blue-square-ui" onClick={handlePrevPokemon}>
@@ -121,6 +120,7 @@ export default function Home() {
                     <svg xmlns="http://www.w3.org/2000/svg" className="svg-menu-box" viewBox="0 0 24 24" fill="none">
                         <path d="M15 8L9 12L15 16" className="svg-menu" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
+                    <div className="menu-text">Previous</div>
                 </button>
             }
             {pokemonID == 1 &&
@@ -135,6 +135,7 @@ export default function Home() {
                     <svg xmlns="http://www.w3.org/2000/svg" className="svg-menu-box" viewBox="0 0 24 24" fill="none">
                         <path d="M9 8L15 12L9 16" className="svg-menu" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
+                    <div className="menu-text">Next</div>
                 </button>
             }
             {pokemonID == noMaxPokemon &&
@@ -158,17 +159,20 @@ export default function Home() {
                     <path className="svg-menu" d="M9.00009 15.5C8.93408 15.5 8.8697 15.4872 8.80872 15.4619C8.71705 15.424 8.63947 15.3603 8.58434 15.2778C8.5292 15.1953 8.50006 15.0992 8.50006 15C8.50006 14.8665 8.55207 14.7409 8.6465 14.6465C8.74095 14.552 8.86651 14.5 9.00006 14.5C9.09929 14.5 9.19533 14.5291 9.27782 14.5843C9.36036 14.6394 9.42403 14.717 9.462 14.8087C9.49998 14.9003 9.50982 15.0002 9.49046 15.0975C9.4711 15.1949 9.42378 15.2834 9.35362 15.3536C9.28345 15.4237 9.19493 15.471 9.0976 15.4904C9.06556 15.4968 9.03275 15.5 9.00009 15.5Z" fill="#000000"/>
                     <path className="svg-menu" d="M9.00006 14C9.19785 14 9.39119 14.0587 9.55563 14.1685C9.72008 14.2784 9.84826 14.4346 9.92394 14.6173C9.99963 14.8001 10.0194 15.0011 9.98085 15.1951C9.94226 15.3891 9.84702 15.5673 9.70717 15.7071C9.56732 15.847 9.38914 15.9422 9.19516 15.9808C9.00117 16.0194 8.80011 15.9996 8.61738 15.9239C8.43466 15.8482 8.27848 15.72 8.1686 15.5556C8.05871 15.3911 8.00006 15.1978 8.00006 15C8.00006 14.7348 8.10542 14.4804 8.29296 14.2929C8.48049 14.1054 8.73485 14 9.00006 14Z" fill="#000000"/>
                 </svg>
+                <div className="menu-text">Random</div>
             </button>
             <button className="blue-square-ui-smallres" onClick={handleArtwork}>
                 <svg xmlns="http://www.w3.org/2000/svg" className="svg-menu-box" viewBox="0 0 24 24" fill="none">
                     <path className="svg-menu" fill-rule="evenodd" clip-rule="evenodd" d="M11.9 19C15.6694 19 18.725 15.866 18.725 12C18.725 8.13401 15.6694 5 11.9 5C8.13067 5 5.07501 8.13401 5.07501 12C5.07501 15.866 8.13067 19 11.9 19Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <path className="svg-menu" d="M5.5459 14.561C11.9 10.833 15.3125 13.167 18.254 14.561" stroke="#000000" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>
+                <div className="menu-text">Artwork</div>
             </button>
-            <button className="blue-square-ui-smallres flex-max" onClick={handleRedirect}>
+            <button className="blue-square-ui-smallres" onClick={handleRedirect}>
                 <svg xmlns="http://www.w3.org/2000/svg" className="svg-menu-box" viewBox="0 0 24 24" fill="none">
                     <path className="svg-menu" fill-rule="evenodd" clip-rule="evenodd" d="M12.0986 19.001C8.69856 19.001 5.99856 16.729 6.00556 13.492C5.98675 13.1702 6.01573 12.8474 6.09156 12.534C6.22356 11.944 6.54156 10.79 6.79856 9.89004C6.94556 9.37404 7.90456 9.14504 8.44656 9.29004C9.18756 9.49004 9.63956 8.85904 9.79256 8.14404C9.95999 7.32193 10.2502 6.52972 10.6536 5.79404C11.6036 4.10104 13.2786 5.40904 14.4336 6.98104C14.9071 7.59132 15.4505 8.14408 16.0526 8.62804C18.4526 11.036 18.7756 15.268 16.2046 17.516C15.0632 18.4959 13.6027 19.0241 12.0986 19.001Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
+                <div className="menu-text">Abilities</div>
             </button>
         </div>
       </div>
