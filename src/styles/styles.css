@@ -1669,6 +1669,8 @@
     align-self: center;
     align-items: center;
     align-content: center;
+    text-align: justify;
+    text-justify: inter-word;
     padding: 16px;
     padding-top: 32px;
   }
