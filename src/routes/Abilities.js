@@ -50,7 +50,6 @@ function selectAbility(ability) {
 
   return (
     <>
-        <h1 className="home-container text-ui">Pokedenz</h1>
         <div id='abilities-container'>
             {
                 abilities && abilities.map( ability => (

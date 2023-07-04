@@ -86,7 +86,6 @@ export default function Home() {
     <>
       <div className="home-container">
         
-        <h1 className="text-ui">Pokedenz</h1>
         <Pokedex 
             pokemonDetails={pokemonDetails}
             loading={loading}

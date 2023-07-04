@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import {useParams} from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import Header from './Header';
 
 
 
@@ -40,7 +41,6 @@ const Ability = () => {
 
     return (
         <>
-            <h1 className="home-container text-ui">Pokedenz</h1>
             <div className='ability-ui'>
                 <div className='ability-name'>
                     {
@@ -49,7 +49,7 @@ const Ability = () => {
                 </div>
                 <div className='ability-text'>
                     {
-                        ability_text ? ability_text.replaceAll("é", "e").split('\n').map( (sentence, i) => ( sentence.length > 1 && i < 5 &&
+                        ability_text ? ability_text.replaceAll("é", "e").replaceAll("×","x").split('\n').map( (sentence, i) => ( sentence.length > 1 && i < 5 &&
                             
                             <div className='ability-text-grid'>{sentence}</div>)) : "Loading..."
                     }

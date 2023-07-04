@@ -5,10 +5,11 @@ import About from './routes/About'
 import Abilities from './routes/Abilities'
 import "./styles/styles.css"
 import Ability from './components/Ability'
-
+import Header from './components/Header'
 function App() {
     return (
         <HashRouter>
+            <Header/>
            <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/about" element={<About/>}/>
