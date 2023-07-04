@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import {useParams} from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
@@ -9,37 +9,51 @@ const Ability = () => {
 
     const navigate = useNavigate();
     const {ability_name} = useParams();
+    const [ability_text, setAbilityText] = useState();
+    const [loading, setLoading] = useState();
+    
     /* Too many requests */
 
-    // React.useEffect(() => {
-    //     console.log("1")
-    //     if (!url) return;
+    React.useEffect(() => {
+        console.log("1")
 
-    //     console.log("2")
-    //     //setLoading(true)
-    
-    //     let cancel
-    //     axios.get(url, {
-    //         cancelToken: new axios.CancelToken(c => cancel = c)
-    //     }).then(res => {
-    //         //setLoading(false)
+        let url = "https://pokeapi.co/api/v2/ability/" + ability_name;
+        if (!url) return
+        console.log("2")
+        setLoading(true)
+
+        let cancel
+        axios.get(url, {
+            cancelToken: new axios.CancelToken(c => cancel = c)
+        }).then(res => {
+            setLoading(false)
             
-    //        //setAbilityInfo(res.data.name)
-    //         //console.log(res.data.name)
-    //     }).catch((error) => {
-    //         console.log("error")
-    //     })
-    
-    //     return () => cancel()
+            setAbilityText(res.data.effect_entries[1].effect)
+        }).catch((error) => {
+            console.log("error: " + error)
+        })
         
-    // }, [url])
+        console.log(ability_text)
+        return () => cancel()
+        
+    }, [ability_name])
 
     return (
         <>
+            <h1 className="home-container text-ui">Pokedenz</h1>
             <div className='ability-ui'>
-                {
-                    ability_name ? ability_name.replace("-", " ").replace(/\b\w/g, x => x.toUpperCase()) : "None"
-                }
+                <div className='ability-name'>
+                    {
+                        ability_name ? ability_name.replace("-", " ").replace(/\b\w/g, x => x.toUpperCase()) : "None"
+                    }
+                </div>
+                <div className='ability-text'>
+                    {
+                        ability_text ? ability_text.replaceAll("é", "e").split('\n').map( (sentence, i) => ( sentence.length > 1 && i < 5 &&
+                            
+                            <div className='ability-text-grid'>{sentence}</div>)) : "Loading..."
+                    }
+                </div>
             </div>
             <div className="home-container">
                 <div className="blue-squares-container-ui">

@@ -26,10 +26,12 @@ export default function Abilities() {
         setPrevPageUrl(res.data.previous)
         setNextPageUrl(res.data.next)
         setAbilities(res.data.results.map( ability => [ability.url, ability.name] ))
-        console.log(abilities)
+    }).catch((error) => {
+        console.log("error: " + error)
     })
 
-      return () => cancel()
+    console.log(abilities)
+    return () => cancel()
 }, [currentPageUrl])
 
 function gotoNextPage() {
@@ -53,7 +55,7 @@ function selectAbility(ability) {
             {
                 abilities && abilities.map( ability => (
                     
-                <button onClick={() => selectAbility(ability[1])} className='abilities-background-ui'>
+                <button onClick={() => selectAbility(ability[1])} className='abilities-background-ui' key={v4()}>
                 {
                     ability[1] ? ability[1].replace("-", " ").replace(/\b\w/g, x => x.toUpperCase()) : "None"
                 }
