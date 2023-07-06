@@ -243,6 +243,7 @@
     font-weight: 100;
     font-size: xx-large;
     margin: 16px 0px;
+    margin-bottom: 4px!important;
   }
 
   .logo {
@@ -363,6 +364,11 @@
   }
 
   @media only screen and (max-width: 490px) {
+    
+}
+  
+  @media only screen and (max-width: 600px) {
+
     #pokedex-container {
         height: calc(342px * 1);
         width: calc(228px * 2 * 1);
@@ -416,7 +422,7 @@
     
     .evolution-container-container {
         padding-left: 5px;
-        transform: translate(-129px, 130px) scale(2.4)!important;
+        transform: translate(-129px, 137px) scale(2.4)!important;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
     }
@@ -448,13 +454,10 @@
     .evolution-screen {
         width: 80%!important;
         height: 90%!important;
-    }   
-    .line-arrow {
-        padding: 0px 19px 0px 19px!important;
-    }
-}
-  
-  @media only screen and (max-width: 600px) {
+    } 
+    /* .line-arrow {
+        padding: 0px 20px 0px 20px!important;
+    } */
     #pokedex-container {
         height: calc(342px * 1)!important;
         width: calc(228px * 2 * 1)!important;
@@ -463,9 +466,12 @@
       width: 90%!important;
       transform: scale(0.9)!important;
     }
-    
+    #name-screen {
+        width: 97%!important;
+        padding-top: 1px!important;
+    }
     #abilities-container {
-      margin-top: 5vh!important;
+      margin-top: 3vh!important;
       display: grid;
       grid-template-columns: repeat(3, 1fr)!important;
       grid-template-rows: repeat(9, 1fr)!important;
@@ -520,20 +526,17 @@
     }
 
     .evolution-name-container {
-        width: 95%!important;
+        width: 100%!important;
     }
     
     .evolution-container {
-        width: 95%!important;
-        height: 77%!important;
+        width: 100%!important;
+        height: 80%!important;
     }
     .evolution-screen {
         width: 80%!important;
         height: 90%!important;
     }   
-    .line-arrow {
-        padding: 0px 19px 0px 19px!important;
-    }
 }
 
   
@@ -654,7 +657,7 @@
     width: 60px;
     border: solid var(--main-soft-black);
     border-radius: 50%;
-    background-color: white;
+    background-color: var(--main-soft-white);
   }
   
   .big-light {
@@ -1187,7 +1190,7 @@
     border-radius: 12px;
     border: var(--main-soft-black) 3px solid;
     background-color: var(--main-bg-color);
-    box-shadow: inset -3px -5px #a20041;
+    box-shadow: inset -3px -5px var(--main-bg-color-darker);
     font-weight: 500;
     font-family: FontDraxel;
     overflow-wrap: normal;
@@ -1196,7 +1199,7 @@
   }
 
   .blue-square-ui:active {
-    background-color: #a20041;
+    background-color: var(--main-bg-color-darker);
   }
   
   /* center buttons */
@@ -1243,7 +1246,7 @@
     height: 25px;
     border-radius: 5px;
     border: var(--main-soft-black) 2px solid;
-    background-color: #ffffff;
+    background-color: var(--main-soft-white);
     box-shadow: inset -2px -2px gray;
   }
 
@@ -1289,7 +1292,7 @@
     display: flex;
     justify-content: right;
     font-family: FontDraxel;
-    color: white;
+    color: var(--main-soft-white);
     font-size: 9px;
     padding: 0;
   }
@@ -1338,7 +1341,7 @@
     z-index: 800;
     width: 150px;
     height: 64.3px;
-    padding-bottom: 2px;
+    padding-bottom: 8px;
   }
 
   .evolution-container {
@@ -1364,7 +1367,7 @@
     flex: 0 0 30%;
     width: 45px;
     height: 7px;
-    background-color: rgb(245, 245, 235);
+    background-color: var(--main-soft-white);
     border: solid var(--main-soft-black) 2px;
     border-radius: 5%;
     transform: translateY(3px);
@@ -1379,7 +1382,7 @@
   .evolution-screen {
     flex: 0 0 30%;
     width: 50px;
-    height: 45px;
+    height: 45px!important;
     justify-self: center;
     justify-items: center;
     background-color: var(--main-screen-bg-color);
@@ -1387,10 +1390,7 @@
     border-radius: 5%;
     display: flex;
     flex-direction: column;
-  }
-
-  .evolution-screen-mobile {
-
+    padding: 5px 0px 3px 0px;
   }
 
   .evolution-px-up-right {
@@ -1398,34 +1398,29 @@
   }
 
   .line-arrow {
-    flex: 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position:unset!important;
+    bborder: solid var(--square-buttons-color);
+    bborder-width: 3px 3px 3px 3px;
 
-    border: solid rgba(255, 255, 255, 0.3);
-    border-width: 1.6px 3px 3px 3px;
-    padding: 0px 20px 0px 20px;
+    
+    background-color: var(--square-buttons-color);
+    
+    padding: 0px 25px 0px 20px;
+    
+    width: 100%;
+    height: 5px;
   }
 
   .line-arrow-down {
-    transform: translateY(42px) rotate(0deg);
-    -webkit-transform: translateY(42px) rotate(0deg);
+    transform: translateY(43px) rotate(0deg);
+    -webkit-transform: translateY(43px) rotate(0deg);
+    box-shadow: inset 0px 1px #3298cb;
   }
 
   .line-arrow-up {
-    transform: translateY(1.2px) rotate(0deg);
-    -webkit-transform: translateY(1.2px) rotate(0deg);
-  }
-
-  .underarrow {
-    position: absolute;
-    margin-bottom: 0px;
-    margin-top: 0px;
-    
-    border: solid var(--main-bg-color);
-    border-width: 0 2px 2px 0;
-    padding: 0px 2px 2px 0px;
+    box-shadow: inset 0px -1px #3298cb;
+    transform: translateY(-4px) rotate(0deg);
+    -webkit-transform: translateY(-4px) rotate(0deg);
   }
 
   .arrow {
@@ -1435,16 +1430,13 @@
     
     border: solid;
     border-width: 0 2px 2px 0;
-    padding: 0px 4px 4px 0px;
+    border-color: var(--main-soft-white);
+    padding: 0px 3px 3px 0px;
   }
 
   .arrow-down {
-    transform: translateY(1px) rotate(45deg);
-    -webkit-transform: translateY(1px) rotate(45deg);
-  }
-
-  .arrow-down:hover {
-    border-color: #F7D02C;
+    transform: translateY(0px) rotate(45deg);
+    -webkit-transform: translateY(0px) rotate(45deg);
   }
 
   .arrow-up {
@@ -1452,15 +1444,18 @@
     -webkit-transform: translateY(1px) rotate(-135deg);
   }
 
-  .arrow-up:hover {
+  .line-arrow:hover {
+    background-color: #3298cb;
+  }
+  .line-arrow:hover .arrow, .line-arrow.hover .arrow {
     border-color: #F7D02C;
   }
 
   .type-screen {
     font-family: fontDraxel;
-    color: white;
+    color: var(--main-soft-white);
     width: 26px;
-    border: solid rgb(255, 255, 255) 2px;
+    border: solid var(--main-soft-white) 2px;
     border-radius: 6px;
     font-size: 10px;
     font-weight: 500;
