@@ -1666,7 +1666,7 @@
     background-color: var(--main-bg-color);
     border: 0px;
 }
-.blue-square-ui-smallres:hover {
+.blue-square-ui-smallres:active {
     padding: 8px 16px;
     background-color: var(--main-bg-color-darker);
     border-radius: 12px;
@@ -1694,7 +1694,7 @@
     fill: var(--main-soft-white)!important;
 }
 
-.blue-square-ui-smallres:hover .svg-fill {
+.blue-square-ui-smallres:active .svg-fill {
     fill: var(--main-soft-white);
 }
 .svg-home {
