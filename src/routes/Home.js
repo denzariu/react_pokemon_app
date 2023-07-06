@@ -15,6 +15,7 @@ export default function Home() {
   
   const [artwork, setArtwork] = React.useState(false)
   const [loading, setLoading] = React.useState(true)
+  const [isArtworkPressed, setArtworkPressed] = React.useState(false)
   const [pokemonDetails, setPokemonDetails] = React.useState([ ])
 
   React.useEffect(() => {
@@ -55,6 +56,8 @@ export default function Home() {
 }, [pokemonID, artwork])
 
   const handleArtwork = () => {
+    console.log("pressed: " + isArtworkPressed)
+    setArtworkPressed(!isArtworkPressed)
     const newArtwork = !artwork
     setArtwork(newArtwork)
   }
@@ -117,7 +120,7 @@ export default function Home() {
             {pokemonID > 1 &&
                 <button className="blue-square-ui-smallres" onClick={handlePrevPokemon}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="svg-menu-box" viewBox="0 0 24 24" fill="none">
-                        <path d="M15 8L9 12L15 16" className="svg-menu" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15 8L9 12L15 16" className="svg-menu svg-fill" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     <div className="menu-text">Previous</div>
                 </button>
@@ -132,7 +135,7 @@ export default function Home() {
             {pokemonID < noMaxPokemon &&
                 <button className="blue-square-ui-smallres" onClick={handleNextPokemon}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="svg-menu-box" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 8L15 12L9 16" className="svg-menu" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 8L15 12L9 16" className="svg-menu svg-fill" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     <div className="menu-text">Next</div>
                 </button>
@@ -163,13 +166,15 @@ export default function Home() {
             <button className="blue-square-ui-smallres" onClick={handleArtwork}>
                 <svg xmlns="http://www.w3.org/2000/svg" className="svg-menu-box" viewBox="0 0 24 24" fill="none">
                     <path className="svg-menu" fill-rule="evenodd" clip-rule="evenodd" d="M11.9 19C15.6694 19 18.725 15.866 18.725 12C18.725 8.13401 15.6694 5 11.9 5C8.13067 5 5.07501 8.13401 5.07501 12C5.07501 15.866 8.13067 19 11.9 19Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path className="svg-menu" d="M5.5459 14.561C11.9 10.833 15.3125 13.167 18.254 14.561" stroke="#000000" stroke-width="1.5" stroke-linecap="round"/>
+                    <path className={"svg-menu " + (isArtworkPressed?"svg-fill-permanent":"")} d="M5.5459 14.561C11.9 10.833 15.3125 13.167 18.254 14.561" stroke="#000000" stroke-width="1.5" stroke-linecap="round"/>
+                    <path className={"svg-menu " + (isArtworkPressed?"svg-fill-permanent":"")} d="M5.5459 14.291 C11.9 26.9 18.254 15.3167 18.254 14.291" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    
                 </svg>
                 <div className="menu-text">Artwork</div>
             </button>
             <button className="blue-square-ui-smallres" onClick={handleRedirect}>
                 <svg xmlns="http://www.w3.org/2000/svg" className="svg-menu-box" viewBox="0 0 24 24" fill="none">
-                    <path className="svg-menu" fill-rule="evenodd" clip-rule="evenodd" d="M12.0986 19.001C8.69856 19.001 5.99856 16.729 6.00556 13.492C5.98675 13.1702 6.01573 12.8474 6.09156 12.534C6.22356 11.944 6.54156 10.79 6.79856 9.89004C6.94556 9.37404 7.90456 9.14504 8.44656 9.29004C9.18756 9.49004 9.63956 8.85904 9.79256 8.14404C9.95999 7.32193 10.2502 6.52972 10.6536 5.79404C11.6036 4.10104 13.2786 5.40904 14.4336 6.98104C14.9071 7.59132 15.4505 8.14408 16.0526 8.62804C18.4526 11.036 18.7756 15.268 16.2046 17.516C15.0632 18.4959 13.6027 19.0241 12.0986 19.001Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path className="svg-menu svg-fill" fill-rule="evenodd" clip-rule="evenodd" d="M12.0986 19.001C8.69856 19.001 5.99856 16.729 6.00556 13.492C5.98675 13.1702 6.01573 12.8474 6.09156 12.534C6.22356 11.944 6.54156 10.79 6.79856 9.89004C6.94556 9.37404 7.90456 9.14504 8.44656 9.29004C9.18756 9.49004 9.63956 8.85904 9.79256 8.14404C9.95999 7.32193 10.2502 6.52972 10.6536 5.79404C11.6036 4.10104 13.2786 5.40904 14.4336 6.98104C14.9071 7.59132 15.4505 8.14408 16.0526 8.62804C18.4526 11.036 18.7756 15.268 16.2046 17.516C15.0632 18.4959 13.6027 19.0241 12.0986 19.001Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 <div className="menu-text">Abilities</div>
             </button>
